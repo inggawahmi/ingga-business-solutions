@@ -19,336 +19,373 @@ export interface SolutionPageData {
 }
 
 export const SOLUTIONS_MAP: Record<string, SolutionPageData> = {
-  "cafe-umkm": {
-    slug: "cafe-umkm",
-    badge: "Solusi Cafe, Coffee Shop & UMKM F&B",
-    title: "Website Cafe & Menu Digital",
-    subtitle: "Tampilkan menu lengkap, jam buka, lokasi Google Maps, dan tombol pesan langsung ke WhatsApp tanpa potongan komisi aplikasi.",
-    heroHeadline: "Bantu Pelanggan Menemukan Menu, Lokasi, dan Cara Memesan dengan Lebih Mudah",
-    heroSubheadline: "Website mobile-first untuk cafe dan UMKM yang melengkapi Instagram dengan menu digital, informasi bisnis, promo, lokasi, dan pemesanan melalui WhatsApp.",
-    targetAudience: "Cafe, coffee shop, kedai kopi, restoran, bakery, katering rumahan, dan UMKM makanan/minuman di Jabodetabek.",
+  "erp-insurance-reinsurance": {
+    slug: "erp-insurance-reinsurance",
+    badge: "Enterprise System & Domain Capability",
+    title: "Sistem ERP Insurance & Reinsurance",
+    subtitle: "Sistem operasional custom untuk alur kerja penerbitan polis, penempatan placing reasuransi, komisi multi-mata uang, dan rekonsiliasi keuangan.",
+    heroHeadline: "Sistem Operasional yang Dibangun Khusus Mengikuti Kompleksitas Alur Kerja Asuransi & Reasuransi",
+    heroSubheadline: "Dirancang untuk menyatukan pencatatan polis, alur penempatan placing, perhitungan premi multi-currency, statement of account, dan pelaporan audit dalam satu sistem terintegrasi.",
+    targetAudience: "Perusahaan asuransi umum, broker asuransi, broker reasuransi, underwriter, dan lembaga keuangan dengan alur transaksi multi-pihak.",
     painPoints: [
       {
-        title: "Informasi tenggelam di feed Instagram",
-        desc: "Calon pengunjung kesulitan mencari daftar menu terbaru, jam operasional, atau petunjuk arah karena tertimbun postingan promosi lama."
+        title: "Perhitungan komisi dan pajak multi-mata uang terpisah di spreadsheet",
+        desc: "Transaksi melibatkan IDR, USD, EUR, atau SGD dengan rate konversi dan komisi bertingkat yang rawan selisih pembulatan bila dihitung manual."
       },
       {
-        title: "Pelanggan harus bolak-balik chat untuk tanya harga",
-        desc: "Admin toko lelah menjawab pertanyaan berulang mengenai varian rasa, harga, dan ketersediaan stok."
+        title: "Pelacakan alur placing treaty & fakultatif sulit ditelusuri",
+        desc: "Dokumen slip penawaran, persentase share asuradur, dan status konfirmasi tersebar di email dan chat internal tanpa status terpusat."
       },
       {
-        title: "Lokasi dan jam buka tidak mudah ditemukan",
-        desc: "Pengunjung yang ingin datang langsung sering batal karena tidak ada link Google Maps terverifikasi."
+        title: "Pembuatan Statement of Account (SOA) memakan waktu lama",
+        desc: "Tim finance harus mencocokkan mutasi bank dengan debit/credit note satu per satu secara manual sebelum menerbitkan rekonsiliasi."
       },
       {
-        title: "Format pemesanan WhatsApp berantakan",
-        desc: "Pesanan masuk tanpa format jelas, rawan salah jumlah, salah varian, atau lupa mencantumkan alamat pengiriman."
-      },
-      {
-        title: "Bisnis terlihat kurang profesional di Google",
-        desc: "Saat calon pelanggan mencari nama bisnis di Google Search, tidak ada website resmi yang meyakinkan."
+        title: "Kurangnya audit trail untuk kepatuhan regulasi",
+        desc: "Perubahan nilai pertanggungan, endorsement, atau rate komisi tidak memiliki catatan riwayat pengguna yang jelas saat proses audit."
       }
     ],
     keyFeatures: [
       {
-        title: "Katalog & Menu Digital Interaktif",
-        desc: "Daftar menu dengan foto jernih, harga transparan, deskripsi bahan, dan filter kategori (Coffee, Non-Coffee, Food, Dessert).",
-        iconName: "Utensils"
+        title: "Placing Pipeline & Underwriting Workflow",
+        desc: "Monitoring status penempatan reasuransi (Facultative & Treaty) dari penawaran, persentase share, hingga final slip terkonfirmasi.",
+        iconName: "ShieldCheck"
       },
       {
-        title: "Tombol WhatsApp Order Terformat",
-        desc: "Pelanggan memilih menu dan jumlah, sistem otomatis merangkum teks pesanan rapi ke chat WhatsApp kasir/admin.",
-        iconName: "MessageCircle"
+        title: "Kalkulasi Premi & Komisi Presisi",
+        desc: "Perhitungan nilai premi bruto, komisi pialang, pajak, dan premi neto secara konsisten dan transparan pada tiap transaksi multi-currency.",
+        iconName: "Calculator"
       },
       {
-        title: "Integrasi Google Maps & Jam Operasional",
-        desc: "Petunjuk arah sekali klik ke lokasi cafe serta status buka/tutup otomatis sesuai jadwal toko.",
-        iconName: "MapPin"
+        title: "Automated Statement of Account (SOA) & Notes",
+        desc: "Penerbitan otomatis Debit Note, Credit Note, dan ringkasan tagihan rekening koran (SOA) siap cetak dan kirim ke asuradur.",
+        iconName: "FileSpreadsheet"
       },
       {
-        title: "Banner Promo & Menu Unggulan",
-        desc: "Ruang khusus untuk mempromosikan menu musiman, diskon paket hemat, atau event spesial cafe.",
-        iconName: "Sparkles"
-      },
-      {
-        title: "QR Code Meja Siap Cetak",
-        desc: "Tamu di meja cukup scan QR Code untuk langsung melihat menu digital di ponsel mereka tanpa antre.",
-        iconName: "QrCode"
-      },
-      {
-        title: "Ringan & Cepat di Ponsel",
-        desc: "Desain mobile-first yang terbuka dalam hitungan detik, sangat ramah kuota saat dibuka dari link bio Instagram.",
-        iconName: "Smartphone"
+        title: "Role-Based Security & Comprehensive Audit Trail",
+        desc: "Pembatasan hak akses berjenjang per divisi serta pencatatan otomatis setiap aktivitas input, edit, dan approval dokumen transaksi.",
+        iconName: "Lock"
       }
     ],
     deliverables: [
-      "Website Menu Digital responsive mobile & desktop",
-      "QR Code khusus meja cafe siap cetak (vektor/PNG)",
-      "Konfigurasi link bio Instagram & Google Maps link",
-      "Panduan mandiri untuk update harga dan foto produk"
+      "Aplikasi web internal custom terpasang di server/cloud privat perusahaan",
+      "Database relasional teroptimasi dengan audit log lengkap",
+      "Template dokumen Debit Note, Credit Note, dan SOA otomatis",
+      "Dokumentasi alur sistem dan panduan pengoperasian teknis",
+      "Sesi pelatihan bagi tim operasional dan finance",
+      "Garansi perbaikan bug dan dukungan pemeliharaan paska implementasi"
     ],
     workflowSteps: [
       {
         step: "01",
-        title: "Kirim Daftar Menu & Foto",
-        desc: "Anda mengirimkan daftar menu, foto produk, lokasi, jam operasional, dan nomor WhatsApp pemesanan."
+        title: "Discovery & Workflow Mapping",
+        desc: "Menganalisis jenis bisnis asuransi/reasuransi Anda, struktur dokumen penempatan, dan aturan pembagian komisi."
       },
       {
         step: "02",
-        title: "Desain & Penyusunan Katalog",
-        desc: "Saya merancang website menu digital interaktif dengan tampilan yang estetis dan mudah dipindai pengunjung."
+        title: "Arsitektur Database & Modul Inti",
+        desc: "Merancang skema database transaksi, formula kalkulasi keuangan, dan pengaturan hak akses pengguna."
       },
       {
         step: "03",
-        title: "Review & Uji Coba Pemesanan",
-        desc: "Kita menguji alur klik menu, format pesan WhatsApp, dan tampilan di berbagai ukuran smartphone."
+        title: "Implementasi & Pengujian Bertahap",
+        desc: "Membangun antarmuka sistem dan memvalidasi keakuratan perhitungan premi serta pencetakan dokumen nota."
       },
       {
         step: "04",
-        title: "Live & Cetak QR Code",
-        desc: "Website dipublikasikan di domain pilihan Anda dan QR code meja siap dipasang."
+        title: "User Training & Go-Live Terkendali",
+        desc: "Pelatihan langsung bagi tim operasional, migrasi data awal, dan pendampingan saat sistem mulai digunakan harian."
+      }
+    ],
+    demoType: "insurance",
+    ctaText: "Diskusikan Kebutuhan Sistem ERP",
+    ctaSource: "solution-erp-insurance-page",
+    faqs: [
+      {
+        q: "Apakah data transaksi dan nasabah kami aman di sistem ini?",
+        a: "Ya. Sistem dibangun di infrastruktur server privat milik perusahaan Anda (on-premises atau private cloud) dengan enkripsi data, pembatasan hak akses berbasis peran (RBAC), dan catatan riwayat audit trail tanpa campur tangan pihak ketiga."
+      },
+      {
+        q: "Apakah sistem dapat menangani transaksi mata uang asing?",
+        a: "Sistem mendukung transaksi multi-currency (seperti IDR, USD, EUR, SGD) dengan nilai tukar per tanggal transaksi dan perhitungan presisi untuk meminimalisir risiko pembulatan."
+      },
+      {
+        q: "Bagaimana proses implementasinya di perusahaan kami?",
+        a: "Implementasi dilakukan secara bertahap mulai dari pemetaan alur SOP, perancangan database, uji coba modul bersama tim inti, hingga pelatihan menyeluruh sebelum sistem dipakai secara resmi."
+      }
+    ],
+    seoTitle: "Sistem ERP Insurance & Reinsurance Custom | Ingga Business Solutions",
+    seoDescription: "Pengembangan sistem ERP custom untuk alur operasional insurance & reinsurance: placing workflow, komisi multi-currency, debit/credit notes, SOA, dan audit trail."
+  },
+  "insurance-erp": {
+    slug: "insurance-erp",
+    badge: "Enterprise System & Domain Capability",
+    title: "Sistem ERP Insurance & Reinsurance",
+    subtitle: "Sistem operasional custom untuk alur kerja penerbitan polis, penempatan placing reasuransi, komisi multi-mata uang, dan rekonsiliasi keuangan.",
+    heroHeadline: "Sistem Operasional yang Dibangun Khusus Mengikuti Kompleksitas Alur Kerja Asuransi & Reasuransi",
+    heroSubheadline: "Dirancang untuk menyatukan pencatatan polis, alur penempatan placing, perhitungan premi multi-currency, statement of account, dan pelaporan audit dalam satu sistem terintegrasi.",
+    targetAudience: "Perusahaan asuransi umum, broker asuransi, broker reasuransi, underwriter, dan lembaga keuangan dengan alur transaksi multi-pihak.",
+    painPoints: [
+      {
+        title: "Perhitungan komisi dan pajak multi-mata uang terpisah di spreadsheet",
+        desc: "Transaksi melibatkan IDR, USD, EUR, atau SGD dengan rate konversi dan komisi bertingkat yang rawan selisih pembulatan bila dihitung manual."
+      },
+      {
+        title: "Pelacakan alur placing treaty & fakultatif sulit ditelusuri",
+        desc: "Dokumen slip penawaran, persentase share asuradur, dan status konfirmasi tersebar di email dan chat internal tanpa status terpusat."
+      },
+      {
+        title: "Pembuatan Statement of Account (SOA) memakan waktu lama",
+        desc: "Tim finance harus mencocokkan mutasi bank dengan debit/credit note satu per satu secara manual sebelum menerbitkan rekonsiliasi."
+      },
+      {
+        title: "Kurangnya audit trail untuk kepatuhan regulasi",
+        desc: "Perubahan nilai pertanggungan, endorsement, atau rate komisi tidak memiliki catatan riwayat pengguna yang jelas saat proses audit."
+      }
+    ],
+    keyFeatures: [
+      {
+        title: "Placing Pipeline & Underwriting Workflow",
+        desc: "Monitoring status penempatan reasuransi (Facultative & Treaty) dari penawaran, persentase share, hingga final slip terkonfirmasi.",
+        iconName: "ShieldCheck"
+      },
+      {
+        title: "Kalkulasi Premi & Komisi Presisi",
+        desc: "Perhitungan nilai premi bruto, komisi pialang, pajak, dan premi neto secara konsisten dan transparan pada tiap transaksi multi-currency.",
+        iconName: "Calculator"
+      },
+      {
+        title: "Automated Statement of Account (SOA) & Notes",
+        desc: "Penerbitan otomatis Debit Note, Credit Note, dan ringkasan tagihan rekening koran (SOA) siap cetak dan kirim ke asuradur.",
+        iconName: "FileSpreadsheet"
+      },
+      {
+        title: "Role-Based Security & Comprehensive Audit Trail",
+        desc: "Pembatasan hak akses berjenjang per divisi serta pencatatan otomatis setiap aktivitas input, edit, dan approval dokumen transaksi.",
+        iconName: "Lock"
+      }
+    ],
+    deliverables: [
+      "Aplikasi web internal custom terpasang di server/cloud privat perusahaan",
+      "Database relasional teroptimasi dengan audit log lengkap",
+      "Template dokumen Debit Note, Credit Note, dan SOA otomatis",
+      "Dokumentasi alur sistem dan panduan pengoperasian teknis",
+      "Sesi pelatihan bagi tim operasional dan finance",
+      "Garansi perbaikan bug dan dukungan pemeliharaan paska implementasi"
+    ],
+    workflowSteps: [
+      {
+        step: "01",
+        title: "Discovery & Workflow Mapping",
+        desc: "Menganalisis jenis bisnis asuransi/reasuransi Anda, struktur dokumen penempatan, dan aturan pembagian komisi."
+      },
+      {
+        step: "02",
+        title: "Arsitektur Database & Modul Inti",
+        desc: "Merancang skema database transaksi, formula kalkulasi keuangan, dan pengaturan hak akses pengguna."
+      },
+      {
+        step: "03",
+        title: "Implementasi & Pengujian Bertahap",
+        desc: "Membangun antarmuka sistem dan memvalidasi keakuratan perhitungan premi serta pencetakan dokumen nota."
+      },
+      {
+        step: "04",
+        title: "User Training & Go-Live Terkendali",
+        desc: "Pelatihan langsung bagi tim operasional, migrasi data awal, dan pendampingan saat sistem mulai digunakan harian."
+      }
+    ],
+    demoType: "insurance",
+    ctaText: "Diskusikan Kebutuhan Sistem ERP",
+    ctaSource: "solution-insurance-erp-page",
+    faqs: [
+      {
+        q: "Apakah data transaksi dan nasabah kami aman di sistem ini?",
+        a: "Ya. Sistem dibangun di infrastruktur server privat milik perusahaan Anda (on-premises atau private cloud) dengan enkripsi data, pembatasan hak akses berbasis peran (RBAC), dan catatan riwayat audit trail tanpa campur tangan pihak ketiga."
+      },
+      {
+        q: "Apakah sistem dapat menangani transaksi mata uang asing?",
+        a: "Sistem mendukung transaksi multi-currency (seperti IDR, USD, EUR, SGD) dengan nilai tukar per tanggal transaksi dan perhitungan presisi untuk meminimalisir risiko pembulatan."
+      },
+      {
+        q: "Bagaimana proses implementasinya di perusahaan kami?",
+        a: "Implementasi dilakukan secara bertahap mulai dari pemetaan alur SOP, perancangan database, uji coba modul bersama tim inti, hingga pelatihan menyeluruh sebelum sistem dipakai secara resmi."
+      }
+    ],
+    seoTitle: "Sistem ERP Insurance & Reinsurance Custom | Ingga Business Solutions",
+    seoDescription: "Pengembangan sistem ERP custom untuk alur operasional insurance & reinsurance: placing workflow, komisi multi-currency, debit/credit notes, SOA, dan audit trail."
+  },
+  "inventory-pos": {
+    slug: "inventory-pos",
+    badge: "Solusi Operasional & Pergudangan",
+    title: "Sistem Inventory & Mutasi Stok",
+    subtitle: "Aplikasi internal untuk pencatatan persediaan barang multi-lokasi, approval pengadaan, dan audit stock opname digital.",
+    heroHeadline: "Kendalikan Keluar-Masuk Barang dan Akurasi Stok Tanpa Ketergantungan Rekap Manual",
+    heroSubheadline: "Sistem manajemen stok yang dirancang sesuai alur mutasi barang di toko, gudang pusat, maupun pabrik Anda untuk meminimalisir selisih data.",
+    targetAudience: "Bisnis retail berkembang, distributor, grosir, manufaktur, dan bisnis F&B dengan banyak cabang gudang.",
+    painPoints: [
+      {
+        title: "Selisih barang antara catatan spreadsheet dan fisik gudang",
+        desc: "Barang keluar-masuk tidak tercatat secara real-time sehingga membingungkan saat jadwal stock opname bulanan."
+      },
+      {
+        title: "Perpindahan antar-cabang rawan hilang tanpa surat jalan resmi",
+        desc: "Pengiriman barang antar gudang atau cabang sering kali hanya mengandalkan chat tanpa verifikasi tanda terima yang jelas."
+      },
+      {
+        title: "Stok kritis baru diketahui saat barang sudah habis",
+        desc: "Tidak ada peringatan otomatis saat batas minimum stok tercapai, mengakibatkan pesanan customer tertunda."
+      }
+    ],
+    keyFeatures: [
+      {
+        title: "Mutasi Stok Multi-Gudang Terverifikasi",
+        desc: "Setiap perpindahan stok antar lokasi mewajibkan verifikasi status kirim dan terima secara transparan.",
+        iconName: "Boxes"
+      },
+      {
+        title: "Digital Stock Opname Reconciliation",
+        desc: "Pencatatan fisik langsung di sistem dengan perhitungan otomatis selisih barang (discrepancy).",
+        iconName: "ClipboardCheck"
+      },
+      {
+        title: "Purchase Request & Approval Berjenjang",
+        desc: "Pengajuan pembelian bahan baku atau barang dagang harus melalui alur approval sebelum diteruskan ke supplier.",
+        iconName: "CheckCircle2"
+      },
+      {
+        title: "Laporan Pergerakan Stok & Nilai Persediaan",
+        desc: "Menghitung nilai persediaan aset barang secara berkala untuk kebutuhan evaluasi finansial owner.",
+        iconName: "TrendingUp"
+      }
+    ],
+    deliverables: [
+      "Aplikasi web sistem inventory dengan dashboard monitoring stok",
+      "Modul pencatatan mutasi barang dan surat jalan digital",
+      "Modul verifikasi hasil stock opname fisik",
+      "Pengaturan hak akses staf gudang, kepala toko, dan admin",
+      "Pelatihan penggunaan bagi staf operasional"
+    ],
+    workflowSteps: [
+      {
+        step: "01",
+        title: "Pemetaan Alur Barang",
+        desc: "Mengidentifikasi alur keluar-masuk barang, titik gudang, dan peran masing-masing staf."
+      },
+      {
+        step: "02",
+        title: "Perancangan Form & Validasi",
+        desc: "Membangun form input mutasi, surat jalan, dan rule stok minimum yang mencegah input ganda."
+      },
+      {
+        step: "03",
+        title: "Uji Coba Lapangan",
+        desc: "Menguji sistem bersama staf gudang untuk memastikan antarmuka mudah digunakan di tablet atau laptop."
+      },
+      {
+        step: "04",
+        title: "Go-Live & Pendampingan",
+        desc: "Penerapan sistem ke operasional harian dengan pendampingan saat stock opname awal."
+      }
+    ],
+    demoType: "inventory",
+    ctaText: "Diskusikan Sistem Inventory Anda",
+    ctaSource: "solution-inventory-page",
+    faqs: [
+      {
+        q: "Apakah sistem ini bisa digunakan di beberapa lokasi gudang sekaligus?",
+        a: "Ya. Sistem berbasis web terpusat sehingga dapat diakses dari gudang pusat, toko cabang, maupun pabrik dengan hak akses yang terpisah per lokasi."
+      },
+      {
+        q: "Bagaimana jika ada staf gudang yang kurang paham teknologi?",
+        a: "Antarmuka sistem dirancang sederhana dan to-the-point khusus untuk operasional gudang, lengkap dengan sesi training langsung."
+      }
+    ],
+    seoTitle: "Sistem Inventory & Mutasi Stok Gudang Custom | Ingga Business Solutions",
+    seoDescription: "Jasa pembuatan sistem inventory custom: mutasi stok multi-gudang, digital stock opname, purchase request approval, dan laporan persediaan real-time."
+  },
+  "cafe-umkm": {
+    slug: "cafe-umkm",
+    badge: "Solusi Cafe, Resto & Bisnis Kuliner",
+    title: "Website Cafe & Menu Digital",
+    subtitle: "Tampilkan menu lengkap, jam operasional, lokasi Google Maps, dan tombol pesan langsung ke WhatsApp tanpa potongan komisi aplikasi.",
+    heroHeadline: "Bantu Pelanggan Menemukan Menu, Lokasi, dan Cara Memesan dengan Lebih Mudah",
+    heroSubheadline: "Website mobile-friendly untuk cafe dan UMKM yang melengkapi promosi media sosial dengan menu digital terstruktur, informasi bisnis, dan pemesanan WhatsApp.",
+    targetAudience: "Cafe, coffee shop, kedai kopi, restoran, bakery, katering rumahan, dan UMKM makanan/minuman.",
+    painPoints: [
+      {
+        title: "Informasi tenggelam di postingan media sosial",
+        desc: "Calon pengunjung kesulitan mencari daftar menu terbaru, jam buka, atau petunjuk arah karena tertimbun konten promosi lama."
+      },
+      {
+        title: "Admin lelah menjawab pertanyaan harga yang sama berulang kali",
+        desc: "Pelanggan harus bolak-balik chat hanya untuk menanyakan ketersediaan menu, varian rasa, atau harga terkini."
+      },
+      {
+        title: "Format pemesanan chat sering tidak lengkap",
+        desc: "Pesanan masuk tanpa format jelas, rawan salah jumlah, salah varian, atau lupa mencantumkan alamat pengiriman."
+      }
+    ],
+    keyFeatures: [
+      {
+        title: "Menu & Katalog Digital Interaktif",
+        desc: "Daftar menu lengkap dengan foto menggugah, harga resmi, varian rasa, dan tag menu unggulan.",
+        iconName: "Utensils"
+      },
+      {
+        title: "Integrasi Lokasi Google Maps & Jam Operasional",
+        desc: "Petunjuk arah sekali klik dan indikator status buka/tutup toko yang jelas bagi pengunjung.",
+        iconName: "MapPin"
+      },
+      {
+        title: "Format Pesanan WhatsApp Otomatis",
+        desc: "Pelanggan yang memilih menu langsung diarahkan ke chat WhatsApp dengan format pesanan rapi.",
+        iconName: "MessageCircle"
+      }
+    ],
+    deliverables: [
+      "Website responsive yang nyaman dibuka di smartphone maupun komputer",
+      "Halaman menu digital dengan navigasi kategori",
+      "Integrasi tombol pemesanan WhatsApp terstruktur",
+      "Setup domain kustom dan hosting cepat",
+      "Panduan update mandiri daftar menu dan harga"
+    ],
+    workflowSteps: [
+      {
+        step: "01",
+        title: "Pengumpulan Materi & Menu",
+        desc: "Mengumpulkan daftar menu, harga, foto produk, jam buka, dan nomor WhatsApp bisnis Anda."
+      },
+      {
+        step: "02",
+        title: "Desain Visual & Struktur Menu",
+        desc: "Menyusun tampilan website yang menarik, rapi, dan sesuai dengan identitas visual brand Anda."
+      },
+      {
+        step: "03",
+        title: "Review & Testing WhatsApp",
+        desc: "Memastikan seluruh tombol pesan dan link peta bekerja lancar di berbagai jenis smartphone."
+      },
+      {
+        step: "04",
+        title: "Peluncuran & Handover",
+        desc: "Website resmi online dan siap dipasang di link bio Instagram atau banner toko."
       }
     ],
     demoType: "cafe",
     ctaText: "Diskusikan Website Cafe Anda",
-    ctaSource: "solution-cafe-umkm",
+    ctaSource: "solution-cafe-page",
     faqs: [
       {
-        q: "Apakah pelanggan harus download aplikasi untuk buka menu?",
-        a: "Tidak perlu. Menu langsung terbuka di browser ponsel saat pengunjung scan QR code atau klik link di Instagram."
+        q: "Berapa lama proses pembuatan website cafe ini?",
+        a: "Umumnya 1 sampai 2 minggu setelah seluruh materi foto menu, harga, dan informasi toko terkumpul."
       },
       {
-        q: "Apakah ada biaya komisi dari setiap pesanan yang masuk?",
-        a: "Sama sekali tidak ada komisi per transaksi. Seluruh pesanan masuk 100% langsung ke WhatsApp Anda tanpa potongan pihak ketiga."
-      },
-      {
-        q: "Bagaimana jika saya ingin mengubah harga atau menambah menu baru?",
-        a: "Struktur data dirancang agar mudah diperbarui. Saya juga menyediakan panduan singkat untuk membantu Anda melakukan update."
+        q: "Apakah saya bisa mengubah harga atau menambah menu sendiri di kemudian hari?",
+        a: "Bisa. Saya menyediakan panduan sederhana agar Anda atau tim dapat memperbarui daftar menu kapan saja."
       }
     ],
-    seoTitle: "Jasa Website Cafe, Coffee Shop & Menu Digital UMKM | Ingga Web",
-    seoDescription: "Tingkatkan penjualan cafe dan UMKM dengan website menu digital, integrasi pemesanan WhatsApp otomatis, dan QR code meja tanpa potongan komisi."
-  },
-
-  "inventory-pos": {
-    slug: "inventory-pos",
-    badge: "Solusi Toko, Gudang & Retail",
-    title: "Sistem POS & Manajemen Inventory",
-    subtitle: "Rampingkan operasional toko, pencatatan transaksi kasir, mutasi stok antar cabang, dan audit stock opname berkala.",
-    heroHeadline: "Penjualan dan Stok Lebih Mudah Dipantau dalam Satu Sistem",
-    heroSubheadline: "Sistem kasir dan inventori yang membantu pemilik bisnis retail, cafe, dan distributor memantau pergerakan barang, riwayat transaksi, dan akurasi stok fisik.",
-    targetAudience: "Toko retail, distributor barang, coffee shop multi-outlet, minimarket, dan bisnis dengan operasional gudang.",
-    painPoints: [
-      {
-        title: "Stok fisik di rak sering berbeda dengan catatan",
-        desc: "Barang terjual tapi tidak tercatat, atau barang hilang tanpa diketahui siapa yang memegang tanggung jawab."
-      },
-      {
-        title: "Aplikasi kasir dan catatan gudang tidak terhubung",
-        desc: "Kasir menggunakan satu software, orang gudang mencatat di buku besar, data baru disinkronkan manual."
-      },
-      {
-        title: "Proses Stock Opname memakan waktu berhari-hari",
-        desc: "Toko harus tutup berjam-jam hanya untuk menghitung barang secara manual di atas lembaran kertas."
-      },
-      {
-        title: "Sulit memantau barang yang menipis atau kadaluarsa",
-        desc: "Sering terlambat restock barang laris dan menumpuk barang yang perputarannya lambat (slow-moving)."
-      },
-      {
-        title: "Laporan omzet dan laba kotor tidak real-time",
-        desc: "Owner harus menunggu rekap bulanan staf untuk mengetahui apakah bisnis untung atau rugi."
-      }
-    ],
-    keyFeatures: [
-      {
-        title: "Aplikasi Kasir (POS) Cepat & Akurat",
-        desc: "Interface kasir intuitif dengan pencarian cepat barcode/nama produk, split payment, dan cetak struk nota.",
-        iconName: "ShoppingBag"
-      },
-      {
-        title: "Pemotongan Stok Otomatis",
-        desc: "Stok gudang atau toko otomatis terpotong detik itu juga saat transaksi kasir berhasil diselesaikan.",
-        iconName: "Boxes"
-      },
-      {
-        title: "Modul Digital Stock Opname",
-        desc: "Rekonsiliasi stok fisik dengan data sistem secara transparan, lengkap dengan catatan selisih dan otorisasi supervisor.",
-        iconName: "ClipboardCheck"
-      },
-      {
-        title: "Peringatan Stok Menipis (Low Stock Alert)",
-        desc: "Notifikasi otomatis saat kuantitas barang mencapai batas minimum pemesanan ulang (reorder point).",
-        iconName: "AlertTriangle"
-      },
-      {
-        title: "Manajemen Multi-Cabang / Multi-Gudang",
-        desc: "Pencatatan mutasi transfer barang antar outlet dengan status kirim, transit, dan terima.",
-        iconName: "Truck"
-      },
-      {
-        title: "Laporan Penjualan & Margin Laba",
-        desc: "Dashboard grafik penjualan harian, produk terlaris, rekap kas kasir, dan laba kotor per kategori.",
-        iconName: "BarChart3"
-      }
-    ],
-    deliverables: [
-      "Aplikasi POS & Inventory siap pakai (Cloud Web / Local Server)",
-      "Master data import template untuk ribuan produk awal",
-      "Sesi pelatihan penggunaan staf kasir & admin gudang",
-      "Dokumentasi alur operasional & panduan troubleshoot"
-    ],
-    workflowSteps: [
-      {
-        step: "01",
-        title: "Pemetaan Alur Transaksi & Gudang",
-        desc: "Kita mendiskusikan kategori produk, alur mutasi barang, metode stok (FIFO/Average), dan kebutuhan kasir."
-      },
-      {
-        step: "02",
-        title: "Setup Database & Fitur Kustom",
-        desc: "Saya membangun arsitektur sistem, skema database relasional, dan antarmuka kasir yang nyaman digunakan."
-      },
-      {
-        step: "03",
-        title: "Uji Coba & Simulasi Stock Opname",
-        desc: "Simulasi alur transaksi kasir, mutasi barang, penyesuaian stok, dan pencetakan laporan omzet."
-      },
-      {
-        step: "04",
-        title: "Deployment & Training Staf",
-        desc: "Sistem live dan staf Anda dibekali panduan pengoperasian yang praktis."
-      }
-    ],
-    demoType: "inventory",
-    ctaText: "Diskusikan Sistem POS & Inventory",
-    ctaSource: "solution-inventory-pos",
-    faqs: [
-      {
-        q: "Apakah sistem POS ini bisa menggunakan barcode scanner dan printer struk thermal?",
-        a: "Bisa. Sistem dapat diintegrasikan dengan barcode scanner USB/Bluetooth standar dan printer nota thermal 58mm/80mm."
-      },
-      {
-        q: "Apakah bisa digunakan jika koneksi internet di toko sedang lambat?",
-        a: "Bisa dirancang dengan arsitektur hybrid atau local server pada jaringan LAN toko sesuai kebutuhan lokasi bisnis Anda."
-      },
-      {
-        q: "Apakah owner bisa memantau penjualan toko dari ponsel secara jarak jauh?",
-        a: "Ya. Owner dapat mengakses dashboard monitoring omzet dan stok kapan saja dari smartphone."
-      }
-    ],
-    seoTitle: "Jasa Pembuatan Sistem POS & Inventory Gudang | Ingga Web",
-    seoDescription: "Rampingkan operasional toko dengan sistem POS kasir, manajemen stok mutasi multi-gudang, digital stock opname, dan laporan omzet real-time."
-  },
-
-  "insurance-erp": {
-    slug: "insurance-erp",
-    badge: "Solusi Asuransi, Reasuransi & Enterprise",
-    title: "Sistem Asuransi, Reasuransi & Custom ERP",
-    subtitle: "Digitalisasi alur kerja kompleks: penentuan rate risiko, penempatan reasuransi, ledger premi multi-mata uang, dan rekonsiliasi keuangan.",
-    heroHeadline: "Custom Business System untuk Workflow Asuransi dan Reasuransi yang Kompleks",
-    heroSubheadline: "Pengembangan sistem untuk membantu digitalisasi policy administration, placing, premium ledger, reconciliation, reporting, dan workflow internal lainnya.",
-    targetAudience: "Perusahaan asuransi umum, pialang asuransi (insurance broker), pialang reasuransi (reinsurance broker), dan korporasi dengan workflow data kompleks.",
-    painPoints: [
-      {
-        title: "Perhitungan komisi, prorate, dan pajak terpisah di spreadsheet",
-        desc: "Risiko selisih pembulatan desimal (floating precision drift) saat memproses ribuan transaksi bernilai miliaran."
-      },
-      {
-        title: "Tracking placing reasuransi fakultatif dan treaty manual",
-        desc: "Status slip placing, endorsement, dan share penjaminan reasuradur tersebar di dokumen PDF dan email."
-      },
-      {
-        title: "Rekonsiliasi mutasi bank dan penagihan premi memakan waktu",
-        desc: "Finance kesulitan mencocokkan pembayaran premi dari ceding dengan alokasi Debit Note / Credit Note."
-      },
-      {
-        title: "Penerbitan Statement of Account (SOA) lambat",
-        desc: "Laporan outstanding saldo premi dan settlement ke reasuradur terlambat dikirim ke pihak ceding company."
-      },
-      {
-        title: "Sistem lama kaku dan tidak memenuhi standar audit",
-        desc: "Tidak ada audit trail yang mencatat riwayat perubahan data krusial saat terjadi sengketa klaim atau premi."
-      }
-    ],
-    keyFeatures: [
-      {
-        title: "Placement Workflow (Facultative & Treaty)",
-        desc: "Manajemen siklus penempatan reasuransi lengkap dari draft slip, endorsement, closing slip, hingga settlement.",
-        iconName: "FileCheck2"
-      },
-      {
-        title: "Precision Calculation Engine (BCMath)",
-        desc: "Kalkulasi rate premi, prorate masa pertanggungan, komisi broker, serta aturan pajak dengan arbitrary precision arithmetic (zero decimal rounding drift).",
-        iconName: "Calculator"
-      },
-      {
-        title: "Multi-Currency Premium Ledger",
-        desc: "Buku besar premi otomatis yang mencatat transaksi IDR, USD, EUR, SGD dengan kurs transaksi yang konsisten.",
-        iconName: "Landmark"
-      },
-      {
-        title: "Automated Statement of Account (SOA)",
-        desc: "Generate ringkasan saldo outstanding piutang/utang premi per ceding company dan reasuradur dalam hitungan detik.",
-        iconName: "FileSpreadsheet"
-      },
-      {
-        title: "Rekonsiliasi Mutasi Bank & Alokasi AR/AP",
-        desc: "Modul pencocokan bukti transfer mutasi bank dengan nomor Debit Note/Credit Note secara transparan.",
-        iconName: "CheckCircle2"
-      },
-      {
-        title: "Enterprise Audit Trail & Role Security",
-        desc: "Pencatatan histori perubahan status, otorisasi transaksi finansial, dan pembatasan hak akses berbasis divisi (Underwriting, Broker, Finance).",
-        iconName: "ShieldAlert"
-      }
-    ],
-    deliverables: [
-      "Custom ERP Core Application berbasis web enterprise",
-      "Skema database relasional ACID (InnoDB) berkinerja tinggi",
-      "Dokumentasi arsitektur sistem, kamus data & User Manual",
-      "Dukungan asistensi deployment & konfigurasi server produksi"
-    ],
-    workflowSteps: [
-      {
-        step: "01",
-        title: "Analisis Alur Bisnis & SOP Finansial",
-        desc: "Pemetaan mendalam terhadap alur underwriting, placing, debit/credit note, dan mekanisme rekonsiliasi finance."
-      },
-      {
-        step: "02",
-        title: "Perancangan Arsitektur Database & Kalkulator",
-        desc: "Membangun relasi database yang rapi dan engine kalkulasi presisi tinggi yang defensible bagi auditor."
-      },
-      {
-        step: "03",
-        title: "Pengembangan Modul & Uji Validasi Data",
-        desc: "Iterasi modul placing, penagihan premi, SOA generation, serta simulasi pengujian dengan dataset transaksi kompleks."
-      },
-      {
-        step: "04",
-        title: "Deployment Produksi & Handover",
-        desc: "Instalasi pada server perusahaan, pengamanan akses, dan transfer pengetahuan teknis."
-      }
-    ],
-    demoType: "insurance",
-    ctaText: "Diskusikan Workflow Perusahaan",
-    ctaSource: "solution-insurance-erp",
-    faqs: [
-      {
-        q: "Apakah data klien dan transaksi perusahaan aman?",
-        a: "Sistem dibangun untuk di-deploy pada server privat (On-Premise atau Private Cloud) milik perusahaan Anda sendiri dengan standar keamanan database enterprise."
-      },
-      {
-        q: "Apakah sistem ini dapat disesuaikan dengan format Debit/Credit Note dan SOA perusahaan kami?",
-        a: "Tentu. Karena dibangun secara custom, seluruh format penomoran, layout dokumen PDF, dan alur approval disesuaikan persis dengan standar operasional Anda."
-      },
-      {
-        q: "Apakah developer berpengalaman dengan domain bisnis reasuransi?",
-        a: "Ya. Saya memiliki pengalaman hands-on dalam mengarsiteki dan memelihara sistem ERP broker reasuransi serta asuransi produksi."
-      }
-    ],
-    seoTitle: "Jasa Pembuatan Sistem Asuransi, Reasuransi & Custom ERP | Ingga Web",
-    seoDescription: "Digitalisasi alur kerja asuransi, placing reasuransi, ledger premi multi-mata uang, SOA otomatis, dan custom ERP enterprise berpresisi tinggi."
+    seoTitle: "Jasa Pembuatan Website Cafe & Menu Digital | Ingga Business Solutions",
+    seoDescription: "Jasa pembuatan website cafe dan resto: katalog menu digital, lokasi Google Maps, jam operasional, dan pemesanan langsung ke WhatsApp."
   }
 };

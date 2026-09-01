@@ -9,7 +9,7 @@ interface WhatsAppButtonProps {
   source: string;
   label?: string;
   className?: string;
-  variant?: "primary" | "secondary" | "amber" | "outline";
+  variant?: "primary" | "secondary" | "terracotta" | "amber" | "outline";
   size?: "sm" | "md" | "lg";
   icon?: boolean;
 }
@@ -17,7 +17,7 @@ interface WhatsAppButtonProps {
 export function WhatsAppButton({
   message = "Halo Ingga, saya ingin mendiskusikan kebutuhan website/sistem bisnis saya.",
   source,
-  label = "Diskusikan via WhatsApp",
+  label = "Konsultasi via WhatsApp",
   className = "",
   variant = "primary",
   size = "md",
@@ -27,13 +27,15 @@ export function WhatsAppButton({
 
   const variantClasses = {
     primary:
-      "bg-blue-600 hover:bg-blue-700 text-white shadow-xs hover:shadow-sm focus-visible:ring-blue-600",
+      "bg-[#1F5A44] hover:bg-[#174535] text-white shadow-sm hover:shadow-md focus-visible:ring-[#1F5A44]",
     secondary:
-      "bg-teal-700 hover:bg-teal-800 text-white shadow-xs hover:shadow-sm focus-visible:ring-teal-700",
+      "bg-[#D97745] hover:bg-[#C26535] text-white shadow-sm hover:shadow-md focus-visible:ring-[#D97745]",
+    terracotta:
+      "bg-[#D97745] hover:bg-[#C26535] text-white shadow-sm hover:shadow-md focus-visible:ring-[#D97745]",
     amber:
-      "bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold shadow-xs hover:shadow-sm focus-visible:ring-amber-500",
+      "bg-[#D97745] hover:bg-[#C26535] text-white shadow-sm hover:shadow-md focus-visible:ring-[#D97745]",
     outline:
-      "bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 hover:border-slate-400 focus-visible:ring-blue-600",
+      "bg-white hover:bg-[#FFF8ED] text-[#17211B] border border-[#E8E1D6] hover:border-[#D97745] focus-visible:ring-[#1F5A44]",
   };
 
   const sizeClasses = {
@@ -50,7 +52,7 @@ export function WhatsAppButton({
       data-cta="whatsapp"
       data-source={source}
       className={
-        "inline-flex items-center justify-center transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
+        "inline-flex items-center justify-center transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 " +
         variantClasses[variant] +
         " " +
         sizeClasses[size] +

@@ -1,63 +1,40 @@
-export interface BusinessProblem {
-  id: string;
+export interface ProblemSignal {
+  num: string;
   title: string;
   description: string;
-  solutionHighlight: string;
 }
 
-export const BUSINESS_PROBLEMS: BusinessProblem[] = [
+export const PROBLEM_SIGNALS: ProblemSignal[] = [
   {
-    id: "p1",
-    title: "Pelanggan hanya mendapatkan info dari Instagram",
-    description: "Postingan tenggelam di feed, highlight berantakan, dan calon pembeli malas mencari info lebih lanjut.",
-    solutionHighlight: "Website profil & katalog terpusat yang selalu update dan mudah diakses dari link bio."
+    num: "01",
+    title: "Informasi bisnis sulit dipahami customer",
+    description: "Layanan, portfolio, dan informasi penting tersebar di beberapa platform sehingga calon pembeli ragu sebelum menghubungi Anda."
   },
   {
-    id: "p2",
-    title: "Menu, katalog, dan harga sulit ditemukan",
-    description: "Pelanggan harus bolak-balik DM atau chat hanya untuk menanyakan daftar harga dan foto produk.",
-    solutionHighlight: "Menu digital interaktif dengan foto produk jernih, harga transparan, dan filter kategori."
+    num: "02",
+    title: "Inquiry tidak tertangani dengan rapi",
+    description: "Permintaan customer masuk dari berbagai channel tanpa alur tindak lanjut dan penugasan yang jelas bagi tim."
   },
   {
-    id: "p3",
-    title: "Pemesanan via WhatsApp tidak memiliki format rapi",
-    description: "Admin bingung membaca pesanan yang formatnya acak-acakan, rawan salah catat nama, alamat, atau varian.",
-    solutionHighlight: "Tombol pesan langsung menyusun rekap pesanan otomatis ke chat WhatsApp admin."
+    num: "03",
+    title: "Data dicatat berulang kali",
+    description: "Informasi yang sama harus disalin manual antara chat, spreadsheet, dokumen penagihan, dan aplikasi pencatatan lain."
   },
   {
-    id: "p4",
-    title: "Penjualan dan stok dicatat di tempat berbeda",
-    description: "Kasir mencatat di buku/POS standar, gudang mencatat di catatan terpisah, data tidak pernah sinkron.",
-    solutionHighlight: "Sistem terintegrasi: stok langsung terpotong saat transaksi kasir berhasil."
+    num: "04",
+    title: "Approval membuat pekerjaan tertunda",
+    description: "Keputusan dan persetujuan operasional bergantung pada percakapan chat yang mudah tenggelam dan sulit ditelusuri riwayatnya."
   },
   {
-    id: "p5",
-    title: "Stok fisik sering berbeda dengan catatan",
-    description: "Saat ada pesanan besar baru ketahuan barang habis, atau barang hilang tanpa ada jejak riwayat mutasi.",
-    solutionHighlight: "Modul audit stock opname berkala dengan log mutasi barang masuk, keluar, dan penyesuaian."
+    num: "05",
+    title: "Laporan masih dibuat manual",
+    description: "Tim menghabiskan waktu berjam-jam untuk merekap data sebelum pimpinan bisnis dapat melihat kondisi operasional terkini."
   },
   {
-    id: "p6",
-    title: "Laporan masih dibuat manual di spreadsheet",
-    description: "Pemilik usaha harus meluangkan waktu berjam-jam tiap akhir bulan hanya untuk merekap omzet dan laba rugi.",
-    solutionHighlight: "Dashboard laporan penjualan, produk terlaris, dan laba kotor yang terbit otomatis real-time."
-  },
-  {
-    id: "p7",
-    title: "Approval dokumen tersebar di banyak grup chat",
-    description: "Pengajuan PO, diskon khusus, dan reimburse hilang di tumpukan chat tanpa jejak approval resmi.",
-    solutionHighlight: "Workflow approval sistemik dengan notifikasi dan histori otorisasi yang aman."
-  },
-  {
-    id: "p8",
-    title: "Sistem lama kaku dan tidak bisa dikembangkan",
-    description: "Aplikasi bawaan vendor tidak bisa ditambah fitur baru saat skala bisnis berkembang.",
-    solutionHighlight: "Custom architecture yang fleksibel, scalable, dan siap ditambah modul baru sesuai kebutuhan."
-  },
-  {
-    id: "p9",
-    title: "Pekerjaan administratif berulang menyita waktu",
-    description: "Waktu pemilik bisnis habis mengurus administrasi manual alih-alih fokus ekspansi dan pemasaran.",
-    solutionHighlight: "Otomatisasi pencatatan, invoice, dan rekap mutasi yang memangkas beban kerja operasional."
+    num: "06",
+    title: "Software yang ada tidak mengikuti proses kerja",
+    description: "Bisnis akhirnya terpaksa menyesuaikan diri dengan keterbatasan aplikasi berlangganan generik, bukan sebaliknya."
   }
 ];
+
+export const PROBLEM_CLOSING_STATEMENT = "Tidak semua masalah membutuhkan sistem besar. Terkadang, satu proses yang diperbaiki dengan tepat sudah memberikan perubahan yang berarti.";

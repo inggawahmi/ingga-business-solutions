@@ -3,8 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BUSINESS_CONFIG } from "@/config/business";
-import { Menu, X, ChevronDown, Utensils, Boxes, ShieldCheck } from "lucide-react";
-import { WhatsAppButton } from "../sales/WhatsAppButton";
+import { Menu, X, ChevronDown, Globe, LayoutGrid, ShieldCheck } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function Navbar() {
@@ -20,7 +19,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open & handle Escape key
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -39,63 +37,62 @@ export function Navbar() {
 
   const solutionLinks = [
     {
-      title: "Cafe & UMKM Kuliner",
-      desc: "Menu digital, katalog, dan WhatsApp order",
-      href: "/solusi/cafe-umkm",
-      icon: Utensils,
+      title: "Website & Digital Presence",
+      desc: "Company profile, bisnis jasa, dan portal customer",
+      href: "/#solusi",
+      icon: Globe,
     },
     {
-      title: "POS & Manajemen Inventory",
-      desc: "Kasir, mutasi stok & digital stock opname",
+      title: "Sistem Bisnis Custom",
+      desc: "Workflow internal, approval & mutasi inventory",
       href: "/solusi/inventory-pos",
-      icon: Boxes,
+      icon: LayoutGrid,
     },
     {
-      title: "Asuransi, Reasuransi & ERP",
-      desc: "Placing, ledger premi & custom ERP",
-      href: "/solusi/insurance-erp",
+      title: "ERP Insurance & Reinsurance",
+      desc: "Placing workflow, multi-currency ledger & audit trail",
+      href: "/solusi/erp-insurance-reinsurance",
       icon: ShieldCheck,
     },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 py-3 px-4 sm:px-6 transition-all duration-200">
+    <header className="fixed top-0 left-0 right-0 z-40 py-3 px-4 sm:px-6 transition-all duration-300">
       <div
         className={
-          "max-w-7xl mx-auto rounded-2xl bg-white/95 border border-slate-200 backdrop-blur-md transition-all duration-200 " +
-          (scrolled ? "py-2.5 px-4 sm:px-6 shadow-sm" : "py-3 px-5 sm:px-7 shadow-2xs")
+          "max-w-6xl mx-auto rounded-2xl transition-all duration-300 " +
+          (scrolled
+            ? "bg-white/95 border border-[#DCE3E5] backdrop-blur-md py-2.5 px-4 sm:px-6 shadow-sm"
+            : "bg-transparent py-3 px-2 sm:px-4")
         }
       >
         <div className="flex items-center justify-between">
+
           {/* Brand Logo */}
           <Link
             href="/"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-xl"
+            className="flex items-center gap-2.5 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568] rounded-xl"
             aria-label={BUSINESS_CONFIG.brand + " - Beranda"}
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-700 text-white flex items-center justify-center font-extrabold text-sm shadow-2xs group-hover:scale-105 transition-transform">
-              IW
+            <div className="w-9 h-9 rounded-xl bg-[#17324D] text-white flex items-center justify-center font-extrabold text-sm shadow-xs group-hover:bg-[#177568] transition-colors">
+              IBS
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-sm text-slate-900 group-hover:text-blue-600 transition-colors leading-tight">
+              <span className="font-bold text-sm text-[#101C24] group-hover:text-[#177568] transition-colors leading-tight">
                 {BUSINESS_CONFIG.brand}
               </span>
-              <span className="text-[11px] text-slate-500 font-medium">
-                Website & Custom Systems
+              <span className="text-[11px] text-[#667681] font-medium">
+                {BUSINESS_CONFIG.subtitle}
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-50 p-1.5 rounded-full border border-slate-200/80 text-xs font-semibold text-slate-700" aria-label="Navigasi Utama">
-            <Link
-              href="/"
-              className="px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors"
-            >
-              Beranda
-            </Link>
-
-            {/* Solusi Dropdown Menu */}
+          {/* Desktop Navigation Links */}
+          <nav
+            className="hidden md:flex items-center gap-1 text-xs font-semibold text-[#101C24]"
+            aria-label="Navigasi Utama"
+          >
+            {/* Dropdown Solusi */}
             <div
               className="relative"
               onMouseEnter={() => setSolusiDropdown(true)}
@@ -103,16 +100,16 @@ export function Navbar() {
             >
               <button
                 type="button"
-                className="flex items-center gap-1 px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors cursor-pointer"
+                className="flex items-center gap-1 px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors cursor-pointer"
                 aria-expanded={solusiDropdown}
                 aria-haspopup="true"
               >
-                <span>Solusi Bisnis</span>
-                <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
+                <span>Solusi</span>
+                <ChevronDown className="w-3.5 h-3.5 text-[#667681]" />
               </button>
 
               {solusiDropdown && (
-                <div className="absolute top-full left-0 mt-1.5 w-72 bg-white rounded-2xl border border-slate-200 shadow-lg p-2 flex flex-col gap-1 z-50">
+                <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-2xl border border-[#DCE3E5] shadow-lg p-2 flex flex-col gap-1 z-50">
                   {solutionLinks.map((sol) => {
                     const Icon = sol.icon;
                     return (
@@ -120,16 +117,16 @@ export function Navbar() {
                         key={sol.href}
                         href={sol.href}
                         onClick={() => setSolusiDropdown(false)}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50/60 transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F7F7F3] transition-colors group"
                       >
-                        <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                        <div className="w-8 h-8 rounded-lg bg-[#F7F7F3] text-[#17324D] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#177568] group-hover:text-white transition-colors">
                           <Icon className="w-4 h-4" />
                         </div>
                         <div>
-                          <strong className="block text-xs font-bold text-slate-900 group-hover:text-blue-700">
+                          <strong className="block text-xs font-bold text-[#101C24] group-hover:text-[#177568]">
                             {sol.title}
                           </strong>
-                          <span className="text-[11px] text-slate-500 font-normal leading-tight block">
+                          <span className="text-[11px] text-[#667681] font-normal leading-tight block">
                             {sol.desc}
                           </span>
                         </div>
@@ -141,59 +138,54 @@ export function Navbar() {
             </div>
 
             <Link
-              href="/#services"
-              className="px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors"
+              href="/#erp"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
             >
-              Layanan
+              ERP
             </Link>
             <Link
-              href="/#experience"
-              className="px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors"
+              href="/#pengalaman"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
             >
               Pengalaman
             </Link>
             <Link
-              href="/#process"
-              className="px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors"
+              href="/#cara-kerja"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
             >
               Cara Kerja
             </Link>
             <Link
-              href="/#faq"
-              className="px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors"
+              href="/#tentang"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
             >
-              FAQ
-            </Link>
-            <Link
-              href="/#contact"
-              className="px-3.5 py-1.5 rounded-full hover:bg-white hover:text-blue-600 transition-colors"
-            >
-              Hubungi Saya
+              Tentang
             </Link>
           </nav>
 
-          {/* Desktop Right CTA */}
-          <div className="hidden sm:flex items-center gap-3">
-            <WhatsAppButton
-              source="navbar-desktop"
-              label="Diskusikan Kebutuhan"
-              size="sm"
-              variant="primary"
-            />
+          {/* Desktop CTA */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="#kontak"
+              className="inline-flex items-center justify-center px-4 py-2 rounded-xl bg-[#17324D] hover:bg-[#101C24] text-white text-xs font-bold shadow-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
+            >
+              Diskusikan Kebutuhan
+            </Link>
           </div>
 
-          {/* Mobile Hamburger Trigger */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile Hamburger Button */}
+          <div className="flex items-center gap-2 md:hidden">
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-800 focus-visible:ring-2 focus-visible:ring-blue-600"
+              className="p-2 rounded-xl bg-white border border-[#DCE3E5] text-[#101C24] focus-visible:ring-2 focus-visible:ring-[#177568]"
               aria-label={mobileOpen ? "Tutup menu" : "Buka menu navigasi"}
               aria-expanded={mobileOpen}
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
         </div>
       </div>
 
@@ -204,78 +196,63 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden mt-2 max-w-7xl mx-auto rounded-2xl bg-white border border-slate-200 shadow-xl p-5 space-y-4 overflow-hidden"
+            className="md:hidden mt-2 max-w-6xl mx-auto rounded-2xl bg-white border border-[#DCE3E5] shadow-xl p-5 space-y-4 overflow-hidden"
           >
-            <nav className="flex flex-col gap-1 text-sm font-semibold text-slate-800" aria-label="Navigasi Mobile">
-              <Link
-                href="/"
-                onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 rounded-xl hover:bg-slate-50"
-              >
-                Beranda
-              </Link>
-
-              <div className="px-4 py-1.5 text-xs font-bold uppercase text-slate-400">
-                Solusi Berdasarkan Kategori
+            <nav className="flex flex-col gap-1 text-sm font-semibold text-[#101C24]" aria-label="Navigasi Mobile">
+              <div className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-[#667681]">
+                Solusi Sistem
               </div>
               {solutionLinks.map((sol) => (
                 <Link
                   key={sol.href}
                   href={sol.href}
                   onClick={() => setMobileOpen(false)}
-                  className="px-4 py-2 rounded-xl hover:bg-blue-50 text-blue-950 font-medium text-xs flex items-center justify-between"
+                  className="px-3 py-2 rounded-xl hover:bg-[#F7F7F3] text-xs flex items-center justify-between"
                 >
-                  <span>{sol.title}</span>
-                  <span className="text-[10px] text-blue-600 bg-blue-100 px-2 py-0.5 rounded-md">Buka</span>
+                  <span className="font-bold text-[#101C24]">{sol.title}</span>
+                  <span className="text-[10px] text-[#177568] font-semibold">Buka →</span>
                 </Link>
               ))}
 
-              <div className="my-1 border-t border-slate-100" />
+              <div className="my-1 border-t border-[#DCE3E5]" />
               <Link
-                href="/#services"
+                href="/#erp"
                 onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 rounded-xl hover:bg-slate-50"
+                className="px-3 py-2 rounded-xl hover:bg-[#F7F7F3]"
               >
-                Layanan yang Tersedia
+                ERP & Insurance Specialization
               </Link>
               <Link
-                href="/#experience"
+                href="/#pengalaman"
                 onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 rounded-xl hover:bg-slate-50"
+                className="px-3 py-2 rounded-xl hover:bg-[#F7F7F3]"
               >
-                Pengalaman Sistem Nyata
+                Pengalaman Proyek Nyata
               </Link>
               <Link
-                href="/#process"
+                href="/#cara-kerja"
                 onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 rounded-xl hover:bg-slate-50"
+                className="px-3 py-2 rounded-xl hover:bg-[#F7F7F3]"
               >
-                Cara Kerja
+                Cara Kerja & Engagement
               </Link>
               <Link
-                href="/#faq"
+                href="/#tentang"
                 onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 rounded-xl hover:bg-slate-50"
+                className="px-3 py-2 rounded-xl hover:bg-[#F7F7F3]"
               >
-                Tanya Jawab (FAQ)
-              </Link>
-              <Link
-                href="/#contact"
-                onClick={() => setMobileOpen(false)}
-                className="px-4 py-2.5 rounded-xl hover:bg-slate-50"
-              >
-                Hubungi Saya
+                Tentang Developer
               </Link>
             </nav>
 
-            <div className="pt-2 border-t border-slate-100">
-              <WhatsAppButton
-                source="navbar-mobile"
-                label="Diskusikan via WhatsApp"
-                size="md"
-                variant="primary"
-                className="w-full"
-              />
+            <div className="pt-2 border-t border-[#DCE3E5]">
+              <Link
+                href="#kontak"
+                onClick={() => setMobileOpen(false)}
+                className="w-full inline-flex items-center justify-center py-3 rounded-xl bg-[#17324D] hover:bg-[#101C24] text-white text-xs font-bold transition-colors"
+              >
+                Diskusikan Kebutuhan Bisnis
+              </Link>
             </div>
           </motion.div>
         )}

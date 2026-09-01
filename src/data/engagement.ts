@@ -1,83 +1,54 @@
-export interface EngagementPlan {
+export interface EngagementModel {
   id: string;
   badge: string;
-  name: string;
+  title: string;
+  tagline: string;
   description: string;
-  bestFor: string[];
-  features: string[];
-  ctaText: string;
-  ctaSource: string;
-  isPopular?: boolean;
+  steps: string[];
+  recommendedFor: string;
 }
 
-export const ENGAGEMENT_PLANS: EngagementPlan[] = [
+export const ENGAGEMENT_MODELS: EngagementModel[] = [
   {
-    id: "starter",
-    badge: "Solusi Cepat & Efisien",
-    name: "Website Starter",
-    description: "Landing page modern dan cepat untuk bisnis yang ingin memiliki kehadiran digital resmi dan mempermudah pelanggan menghubungi via WhatsApp.",
-    bestFor: [
-      "Cafe & Coffee Shop baru",
-      "UMKM Makanan & Minuman",
-      "Personal Business & Jasa",
-      "Landing Page Campaign Promo"
+    id: "digital-presence",
+    badge: "Sisi Depan",
+    title: "Digital Presence Project",
+    tagline: "Untuk bisnis yang perlu tampil lebih profesional dan memperjelas informasi bagi calon customer.",
+    description: "Membangun identitas digital yang solid dan terstruktur agar calon pembeli dapat mempelajari layanan Anda secara mandiri dan mengambil keputusan dengan cepat.",
+    steps: [
+      "Memahami bisnis dan target customer",
+      "Menyusun struktur informasi & konten",
+      "Mendesain dan membangun website",
+      "Review, peluncuran, dan handover"
     ],
-    features: [
-      "1 Halaman Landing Page responsif (Mobile & Desktop)",
-      "Navigasi menu / highlight produk unggulan",
-      "Tombol WhatsApp Order & Form Kontak",
-      "Integrasi Google Maps lokasi bisnis",
-      "Optimasi teknis SEO dasar & Social Share preview",
-      "Bantuan setup domain & deployment"
-    ],
-    ctaText: "Diskusikan Website Starter",
-    ctaSource: "engagement-starter"
+    recommendedFor: "Company profile, bisnis jasa, vendor corporate, F&B & UMKM berkembang."
   },
   {
-    id: "growth",
-    badge: "Paling Diminati Bisnis Berkembang",
-    name: "Business Growth",
-    description: "Solusi lengkap untuk bisnis yang membutuhkan katalog produk interaktif, company profile multi-halaman, atau alur pemesanan yang lebih terstruktur.",
-    bestFor: [
-      "Cafe dengan banyak kategori menu",
-      "Distributor & Bisnis Retail",
-      "Company Profile Multi-Cabang",
-      "Lead Generation Bisnis B2B"
+    id: "workflow-improvement",
+    badge: "Sisi Operasional",
+    title: "Workflow Improvement",
+    tagline: "Untuk bisnis yang memiliki satu proses manual, lambat, atau sulit dipantau.",
+    description: "Fokus merapikan satu titik hambatan (bottleneck) utama seperti otomasi quotation, approval berjenjang, atau pencatatan mutasi stok internal.",
+    steps: [
+      "Memetakan proses kerja saat ini",
+      "Menentukan bottleneck utama",
+      "Merancang solusi untuk satu workflow",
+      "Implementasi, training, dan evaluasi"
     ],
-    features: [
-      "Struktur multi-halaman (Profil, Menu/Katalog, Kontak, FAQ)",
-      "Digital Menu/Katalog interaktif dengan filter kategori & search",
-      "Template WhatsApp Order terstruktur per produk",
-      "Panel kelola konten dasar jika dibutuhkan",
-      "Optimasi kecepatan & Technical SEO",
-      "Handover & panduan pembaruan konten"
-    ],
-    ctaText: "Diskusikan Business Growth",
-    ctaSource: "engagement-growth",
-    isPopular: true
+    recommendedFor: "Bisnis berkembang yang ingin mengurangi ketergantungan pada spreadsheet terpisah."
   },
   {
-    id: "custom-system",
-    badge: "Solusi Custom Operasional",
-    name: "Custom Business System",
-    description: "Sistem aplikasi internal yang dibangun dari nol sesuai SOP bisnis Anda untuk merapikan pencatatan, stok, kasir, atau workflow enterprise.",
-    bestFor: [
-      "Bisnis dengan pencatatan stok manual",
-      "Retail & Restoran butuh POS terintegrasi",
-      "Perusahaan butuh modul Approval & Invoicing",
-      "Sistem Asuransi, Reasuransi, & Finance"
+    id: "custom-erp",
+    badge: "Enterprise & Multi-Workflow",
+    title: "Custom System & ERP",
+    tagline: "Untuk bisnis atau perusahaan dengan proses yang lebih luas dan saling berkaitan.",
+    description: "Sistem terpadu berskala penuh yang menghubungkan operasional lintas divisi, kontrol hak akses data, kalkulasi transaksi kompleks, dan laporan audit.",
+    steps: [
+      "Discovery & requirement mapping",
+      "Penentuan scope dan tahapan modul",
+      "Implementasi bertahap & database design",
+      "User testing, training & pendampingan paska rilis"
     ],
-    features: [
-      "Modul POS Kasir / Manajemen Inventory / ERP",
-      "Fitur Audit Stock Opname (fisik vs data sistem)",
-      "Role-Based Access Control (Kasir, Supervisor, Manager, Owner)",
-      "Dashboard monitoring omzet, stok tipis & laporan laba",
-      "Dokumen otomatis (Invoice PDF, Surat Jalan, Rekonsiliasi)",
-      "Integrasi API & database relasional berkinerja tinggi"
-    ],
-    ctaText: "Jadwalkan Pembahasan Scope",
-    ctaSource: "engagement-custom"
+    recommendedFor: "Perusahaan dengan transaksi multi-mata uang, broker insurance/reinsurance, dan manufaktur."
   }
 ];
-
-export const ENGAGEMENT_NOTE = "Biaya dan estimasi pengerjaan disesuaikan dengan fitur, integrasi, serta kompleksitas workflow.";

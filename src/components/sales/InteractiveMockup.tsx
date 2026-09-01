@@ -1,198 +1,143 @@
 "use client";
 
 import React, { useState } from "react";
-import { MessageCircle, ShoppingCart, CheckCircle2, Sparkles, MapPin } from "lucide-react";
+import { MessageCircle, MapPin, Clock, Star, Plus } from "lucide-react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { motion } from "framer-motion";
 
 export function InteractiveMockup() {
-  const [activeTab, setActiveTab] = useState<"menu" | "inventory">("menu");
-  const [cartCount, setCartCount] = useState(2);
+  const [selectedItem, setSelectedItem] = useState("Kopi Susu Gula Aren");
 
-  const demoOrderUrl = buildWhatsAppUrl(
-    "Halo, saya ingin memesan:\n- 2x Kopi Susu Aren (Reguler)\n- 1x Croissant Butter\n\nTotal: Rp 68.000\nNama: Budi\nAlamat: Jl. Juanda No. 12, Bekasi"
+  const sampleItems = [
+    { name: "Kopi Susu Gula Aren", price: "Rp 22.000", tag: "Favorit", desc: "Espresso robusta + aren organik + fresh milk" },
+    { name: "Matcha Latte Oat", price: "Rp 26.000", tag: "Non-Coffee", desc: "Pure Uji matcha with creamy oat milk" },
+    { name: "Butter Croissant", price: "Rp 24.000", tag: "Artisan Bakery", desc: "Freshly baked daily, flaky & buttery" },
+  ];
+
+  const orderUrl = buildWhatsAppUrl(
+    "Halo Kopi Senja, saya ingin memesan menu: " + selectedItem + "\n\nNama:\nAlamat / Meja:"
   );
 
   return (
-    <div className="w-full rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl overflow-hidden text-slate-100 flex flex-col text-xs">
+    <div className="relative w-full max-w-lg mx-auto">
 
-      {/* Top Browser Bar */}
-      <div className="bg-slate-950/80 px-4 py-3 border-b border-slate-800 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
-          <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-          <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+      {/* Main Desktop/Tablet Browser Frame */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="bg-white rounded-3xl border border-[#E8E1D6] shadow-xl overflow-hidden"
+      >
+        {/* Browser Top Bar */}
+        <div className="bg-[#FFF8ED] px-4 py-3 border-b border-[#E8E1D6] flex items-center justify-between gap-3">
+          <div className="flex items-center gap-1.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#D97745]/70" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#F6DFC7]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#1F5A44]/50" />
+          </div>
+          <div className="bg-white px-3 py-1 rounded-full text-[11px] text-[#667068] border border-[#E8E1D6] font-mono truncate max-w-xs w-full text-center">
+            kopisenja.id/menu
+          </div>
+          <div className="w-8" />
         </div>
 
-        {/* Mock Address Bar */}
-        <div className="bg-slate-900 px-3.5 py-1 rounded-full text-[11px] text-slate-400 border border-slate-800 flex items-center gap-1.5 font-mono max-w-xs w-full justify-center truncate">
-          <span className="text-emerald-400 font-bold">https://</span>
-          <span>kopi-nusantara.id/menu</span>
-        </div>
+        {/* Mockup Website Content */}
+        <div className="p-5 sm:p-6 space-y-5 text-[#17211B]">
 
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            onClick={() => setActiveTab("menu")}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-semibold transition-colors ${
-              activeTab === "menu" ? "bg-blue-600 text-white" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            Menu Digital
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab("inventory")}
-            className={`px-2.5 py-1 rounded-lg text-[10px] font-semibold transition-colors ${
-              activeTab === "inventory" ? "bg-teal-600 text-white" : "text-slate-400 hover:text-white"
-            }`}
-          >
-            Status Stok
-          </button>
-        </div>
-      </div>
-
-      {/* Main Mockup Body */}
-      <div className="p-4 sm:p-5 space-y-4 bg-slate-900/90 min-h-[320px]">
-        {activeTab === "menu" ? (
-          <div className="space-y-4">
-            {/* Cafe Brand Hero Mini */}
-            <div className="bg-gradient-to-r from-slate-800 to-slate-800/60 p-3.5 rounded-xl border border-slate-700/60 flex items-center justify-between">
+          {/* Cafe Mini Banner */}
+          <div className="bg-[#17211B] text-white p-5 rounded-2xl space-y-2 relative overflow-hidden">
+            <div className="flex items-start justify-between">
               <div>
-                <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-0.5">
-                  Menu Unggulan Cafe
+                <span className="text-[10px] font-bold uppercase tracking-wider text-[#F6DFC7] block">
+                  Kedai Kopi & Bakery
                 </span>
-                <strong className="text-sm font-bold text-white block">
-                  Kopi Nusantara • Bekasi Timur
+                <strong className="text-lg sm:text-xl font-bold block mt-0.5">
+                  Kopi Senja Nusantara
                 </strong>
-                <p className="text-[11px] text-slate-400 flex items-center gap-1 mt-0.5">
-                  <MapPin className="w-3 h-3 text-rose-400" /> Buka: 08.00 - 22.00 WIB
-                </p>
               </div>
-
-              <div className="bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 px-2.5 py-1 rounded-full text-[10px] font-bold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Buka Sekarang</span>
+              <div className="bg-[#1F5A44] text-[#4ADE80] px-2.5 py-1 rounded-full text-[10px] font-bold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#4ADE80] animate-pulse" />
+                <span>Buka Hari Ini</span>
               </div>
             </div>
 
-            {/* Menu Items Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <span className="font-bold text-slate-100 block text-xs">
-                    Kopi Susu Gula Aren
-                  </span>
-                  <span className="text-[11px] text-amber-400 font-semibold block">
-                    Rp 22.000
-                  </span>
-                  <span className="text-[10px] text-slate-400">Espresso + Aren Organik</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setCartCount((c) => c + 1)}
-                  className="px-2.5 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px] cursor-pointer"
-                >
-                  + Tambah
-                </button>
-              </div>
-
-              <div className="bg-slate-800/80 p-3 rounded-xl border border-slate-700/60 flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <span className="font-bold text-slate-100 block text-xs">
-                    Croissant Butter Flaky
-                  </span>
-                  <span className="text-[11px] text-amber-400 font-semibold block">
-                    Rp 24.000
-                  </span>
-                  <span className="text-[10px] text-slate-400">Freshly Baked Daily</span>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setCartCount((c) => c + 1)}
-                  className="px-2.5 py-1 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px] cursor-pointer"
-                >
-                  + Tambah
-                </button>
-              </div>
-            </div>
-
-            {/* Order Summary & WhatsApp CTA */}
-            <div className="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-blue-900/60 text-blue-400 flex items-center justify-center font-bold">
-                  <ShoppingCart className="w-4 h-4" />
-                </div>
-                <div>
-                  <span className="text-[10px] text-slate-400 block">Keranjang Belanja ({cartCount} item)</span>
-                  <strong className="text-white text-xs font-bold">Total: Rp 68.000</strong>
-                </div>
-              </div>
-
-              <a
-                href={demoOrderUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-cta="whatsapp"
-                data-source="hero-interactive-demo"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-xs transition-colors"
-              >
-                <MessageCircle className="w-3.5 h-3.5" />
-                <span>Kirim Pesanan ke WA</span>
-              </a>
+            <div className="flex flex-wrap gap-3 text-[11px] text-[#9FA8A1] pt-1">
+              <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#F6DFC7]" /> 08.00 - 22.00</span>
+              <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5 text-[#D97745]" /> Bekasi Timur</span>
+              <span className="flex items-center gap-1 text-[#F6DFC7] font-semibold"><Star className="w-3.5 h-3.5 fill-current" /> 4.9 (240+ ulasan)</span>
             </div>
           </div>
-        ) : (
-          /* Inventory Tab */
-          <div className="space-y-3">
-            <div className="grid grid-cols-3 gap-2">
-              <div className="bg-slate-800/80 p-2.5 rounded-xl border border-slate-700/60 text-center">
-                <span className="text-[10px] text-slate-400 block">Total SKU</span>
-                <strong className="text-sm font-bold text-white">128 Produk</strong>
-              </div>
-              <div className="bg-slate-800/80 p-2.5 rounded-xl border border-slate-700/60 text-center">
-                <span className="text-[10px] text-slate-400 block">Stok Aman</span>
-                <strong className="text-sm font-bold text-emerald-400">122 Produk</strong>
-              </div>
-              <div className="bg-slate-800/80 p-2.5 rounded-xl border border-slate-700/60 text-center">
-                <span className="text-[10px] text-slate-400 block">Restock Segera</span>
-                <strong className="text-sm font-bold text-amber-400">6 Produk</strong>
-              </div>
-            </div>
 
-            <div className="space-y-1.5">
-              <div className="bg-slate-800/50 px-3 py-2 rounded-lg border border-slate-700/40 flex items-center justify-between text-[11px]">
-                <span className="font-semibold text-slate-200">Biji Kopi Arabika Gayo 1kg</span>
-                <span className="text-emerald-400 font-bold">Stok: 45 pack</span>
-              </div>
-              <div className="bg-slate-800/50 px-3 py-2 rounded-lg border border-slate-700/40 flex items-center justify-between text-[11px]">
-                <span className="font-semibold text-slate-200">Susu UHT Fresh 1L</span>
-                <span className="text-amber-400 font-bold">Stok: 8 kotak (Tipis)</span>
-              </div>
-              <div className="bg-slate-800/50 px-3 py-2 rounded-lg border border-slate-700/40 flex items-center justify-between text-[11px]">
-                <span className="font-semibold text-slate-200">Cup Dingin 16oz</span>
-                <span className="text-emerald-400 font-bold">Stok: 850 pcs</span>
-              </div>
-            </div>
-
-            <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-400">
-              <span className="flex items-center gap-1 text-teal-400">
-                <CheckCircle2 className="w-3.5 h-3.5" />
-                Audit Stock Opname sinkron
-              </span>
-              <span>Update: Realtime</span>
-            </div>
+          {/* Menu Selection List */}
+          <div className="space-y-2.5">
+            <span className="text-xs font-bold text-[#667068] block">Pilihan Menu Unggulan:</span>
+            {sampleItems.map((item) => {
+              const isSelected = selectedItem === item.name;
+              return (
+                <div
+                  key={item.name}
+                  onClick={() => setSelectedItem(item.name)}
+                  className={
+                    "p-3 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 " +
+                    (isSelected
+                      ? "bg-[#FFF8ED] border-[#D97745] shadow-xs"
+                      : "bg-white border-[#E8E1D6] hover:border-[#667068]")
+                  }
+                >
+                  <div className="space-y-0.5">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-bold text-[#17211B]">{item.name}</span>
+                      <span className="text-[10px] px-1.5 py-0.2 rounded bg-[#F6DFC7] text-[#D97745] font-semibold">
+                        {item.tag}
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-[#667068] font-normal">{item.desc}</p>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <span className="text-xs font-bold text-[#1F5A44] block">{item.price}</span>
+                    <span className="text-[10px] text-[#D97745] font-semibold flex items-center justify-end gap-0.5">
+                      <Plus className="w-3 h-3" /> Pilih
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-        )}
-      </div>
 
-      {/* Footer Trust Bar */}
-      <div className="bg-slate-950 px-4 py-2.5 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
-        <span className="flex items-center gap-1 text-slate-300">
-          <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-          Code-native UI • Siap disesuaikan dengan SOP bisnis Anda
-        </span>
-        <span className="text-slate-500 font-mono">Mobile & Desktop Responsive</span>
-      </div>
+          {/* WhatsApp Direct Order Bar */}
+          <div className="pt-2">
+            <a
+              href={orderUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cta="whatsapp"
+              data-source="hero-mockup-direct-order"
+              className="w-full py-3 px-4 rounded-xl bg-[#1F5A44] hover:bg-[#174535] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all"
+            >
+              <MessageCircle className="w-4 h-4" />
+              <span>Pesan {selectedItem} via WhatsApp</span>
+            </a>
+          </div>
+
+        </div>
+      </motion.div>
+
+      {/* Floating Overlapping Mobile Card */}
+      <motion.div
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="hidden sm:flex absolute -bottom-6 -right-6 bg-white p-3.5 rounded-2xl border border-[#E8E1D6] shadow-lg max-w-[200px] items-center gap-3 z-10"
+      >
+        <div className="w-9 h-9 rounded-xl bg-[#F6DFC7] text-[#D97745] flex items-center justify-center shrink-0">
+          <MessageCircle className="w-5 h-5" />
+        </div>
+        <div>
+          <span className="text-[10px] text-[#667068] block">Alur Otomatis</span>
+          <strong className="text-xs text-[#17211B] leading-tight block">
+            Format Pesanan Siap Kirim
+          </strong>
+        </div>
+      </motion.div>
 
     </div>
   );

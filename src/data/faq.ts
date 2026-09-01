@@ -7,37 +7,27 @@ export interface FaqItem {
 export const FAQ_DATA: FaqItem[] = [
   {
     id: "faq-1",
-    question: "Berapa biaya pembuatan website atau sistem?",
-    answer: "Biaya bergantung pada jumlah halaman, fitur, integrasi, dan kompleksitas workflow. Setelah kebutuhan awal dibahas, saya akan memberikan scope dan estimasi yang lebih jelas."
+    question: "Apakah saya harus sudah memiliki requirement teknis?",
+    answer: "Tidak. Pembahasan dapat dimulai dari masalah, proses kerja saat ini, dan hasil yang ingin dicapai. Requirement teknis disusun setelah kebutuhan bisnis dipahami bersama."
   },
   {
     id: "faq-2",
-    question: "Berapa lama proses pembuatannya?",
-    answer: "Estimasi waktu diberikan setelah fitur dan ruang lingkup dipetakan. Website sederhana dan custom business system memiliki kebutuhan pengerjaan yang berbeda."
+    question: "Apakah sistem dapat mengikuti proses bisnis yang sudah berjalan?",
+    answer: "Ya. Prinsip utama sistem custom adalah menyesuaikan aplikasi dengan alur kerja (SOP) bisnis Anda, bukan memaksa tim Anda beradaptasi dengan keterbatasan software kaku."
   },
   {
     id: "faq-3",
-    question: "Apakah bisa membantu domain dan hosting?",
-    answer: "Ya. Saya dapat membantu pemilihan domain, hosting, konfigurasi deployment, dan kebutuhan teknis lainnya. Biaya layanan pihak ketiga akan dijelaskan secara terpisah."
+    question: "Apakah bisa memulai dari satu workflow terlebih dahulu?",
+    answer: "Tentu. Banyak klien memulai dari proses yang paling mendesak (misalnya otomasi quotation, approval purchase request, atau katalog digital), kemudian berkembang ke modul lainnya secara bertahap."
   },
   {
     id: "faq-4",
-    question: "Apakah sistem bisa dikembangkan lagi?",
-    answer: "Ya. Struktur aplikasi dirancang agar fitur baru dapat ditambahkan secara bertahap sesuai pertumbuhan kebutuhan bisnis."
+    question: "Apakah tersedia dukungan setelah sistem digunakan?",
+    answer: "Ya. Setiap proyek mencakup pendampingan implementasi, pelatihan penggunaan bagi tim Anda, serta garansi perbaikan dan kesiapan pemeliharaan jangka panjang."
   },
   {
     id: "faq-5",
-    question: "Apakah tersedia maintenance?",
-    answer: "Maintenance dan pengembangan lanjutan dapat dibahas sesuai kebutuhan setelah project selesai."
-  },
-  {
-    id: "faq-6",
-    question: "Apakah source code diberikan?",
-    answer: "Ketentuan source code, akses repository, deployment, dan handover akan dijelaskan di dalam proposal sesuai jenis serta scope project."
-  },
-  {
-    id: "faq-7",
-    question: "Apakah bisa mengintegrasikan sistem yang sudah ada?",
-    answer: "Bisa, selama sistem atau layanan tersebut menyediakan akses integrasi yang memadai seperti API, database, webhook, atau format pertukaran data lainnya."
+    question: "Bagaimana menentukan biaya dan waktu pengerjaan?",
+    answer: "Biaya dan timeline dihitung berdasarkan ruang lingkup pekerjaan yang telah disepakati bersama setelah sesi diskusi awal, tanpa biaya tersembunyi."
   }
 ];

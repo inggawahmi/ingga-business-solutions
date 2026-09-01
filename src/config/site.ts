@@ -5,9 +5,9 @@ export const SITE_URL =
 
 export const SITE_CONFIG = {
   name: BUSINESS_CONFIG.brand,
-  title: "Jasa Website & Sistem Bisnis Jabodetabek | Ingga Web & Business Systems",
+  title: "Website, Sistem Bisnis & ERP Custom | Ingga Business Solutions",
   description:
-    "Jasa pembuatan website, company profile, menu digital, POS, inventory, custom ERP, serta sistem asuransi dan reasuransi untuk bisnis di Jabodetabek.",
+    "Pembuatan website profesional, sistem bisnis custom, dan ERP untuk membantu bisnis tampil lebih meyakinkan serta menjalankan operasional dengan lebih rapi. Berpengalaman menangani ERP insurance dan reinsurance.",
   url: SITE_URL,
   ogImage: `${SITE_URL}/opengraph-image`,
 };
