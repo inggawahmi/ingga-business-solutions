@@ -1,7 +1,12 @@
 "use client";
 
 import React from "react";
-import { ENGAGEMENT_HEADER, ENGAGEMENT_MODELS_BILINGUAL, WORKFLOW_STAGES_BILINGUAL, TRUST_POINTS_BILINGUAL } from "@/data/engagement";
+import {
+  ENGAGEMENT_HEADER,
+  ENGAGEMENT_MODELS_BILINGUAL,
+  WORKFLOW_STAGES_BILINGUAL,
+  TRUST_POINTS_BILINGUAL,
+} from "@/data/engagement";
 import { useLanguage } from "@/lib/languageContext";
 import { CheckCircle2, MessageSquare, Search, Cpu, Rocket } from "lucide-react";
 
@@ -14,7 +19,7 @@ export function ProcessAndTrustSection() {
     <section id="cara-kerja" className="py-20 sm:py-24 bg-[#F7F7F3]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
-        {/* PART 1: 3 ENGAGEMENT MODELS */}
+        {/* PART 1: 3 ENGAGEMENT MODELS (COMPACT CARDS) */}
         <div className="space-y-10">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-wider text-[#177568] block">
@@ -32,34 +37,24 @@ export function ProcessAndTrustSection() {
             {ENGAGEMENT_MODELS_BILINGUAL.map((model) => (
               <div
                 key={model.id}
-                className="bg-white p-6 sm:p-7 rounded-3xl border border-[#DCE3E5] shadow-2xs space-y-5 flex flex-col justify-between"
+                className="bg-white p-6 sm:p-7 rounded-3xl border border-[#DCE3E5] shadow-2xs space-y-4 flex flex-col justify-between"
               >
-                <div className="space-y-4">
+                <div className="space-y-3">
                   <span className="text-[11px] font-bold px-3 py-1 rounded-full bg-[#F7F7F3] text-[#17324D] border border-[#DCE3E5] inline-block">
                     {t(model.badge)}
                   </span>
-                  <div>
-                    <h3 className="text-lg font-bold text-[#101C24]">
-                      {t(model.title)}
-                    </h3>
-                    <p className="text-xs text-[#667681] mt-1">
-                      {t(model.tagline)}
-                    </p>
-                  </div>
+                  <h3 className="text-lg font-bold text-[#101C24]">
+                    {t(model.title)}
+                  </h3>
+                  <p className="text-xs text-[#667681] leading-relaxed">
+                    {t(model.targetAudience)}
+                  </p>
+                </div>
 
-                  <div className="space-y-2 pt-2 border-t border-[#DCE3E5]">
-                    <strong className="text-xs font-bold text-[#101C24] block">
-                      {language === "id" ? "Tahapan Pengerjaan:" : "Process Steps:"}
-                    </strong>
-                    <ul className="space-y-1.5 text-xs text-[#667681]">
-                      {model.steps.map((st, idx) => (
-                        <li key={idx} className="flex items-start gap-1.5">
-                          <span className="font-mono text-[#177568] font-bold text-[11px] shrink-0">{idx + 1}.</span>
-                          <span>{t(st)}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <div className="pt-3 border-t border-[#DCE3E5]">
+                  <p className="text-xs font-semibold text-[#177568] leading-snug">
+                    {t(model.coreOutcome)}
+                  </p>
                 </div>
               </div>
             ))}

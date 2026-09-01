@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/lib/languageContext";
 import { Globe, LayoutGrid, ArrowRight, ShieldCheck } from "lucide-react";
 
 export function DualViewHeroMockup() {
   const [activeTab, setActiveTab] = useState<"customer" | "operations">("customer");
+  const customerTabRef = useRef<HTMLButtonElement>(null);
+  const operationsTabRef = useRef<HTMLButtonElement>(null);
   const { language } = useLanguage();
 
   const labels = {
@@ -20,16 +22,37 @@ export function DualViewHeroMockup() {
     viewIndicatorOperations: { id: "Sisi Operasional Internal", en: "Internal Operations Side" },
   };
 
+  const handleTabKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+      e.preventDefault();
+      const nextTab = activeTab === "customer" ? "operations" : "customer";
+      setActiveTab(nextTab);
+      if (nextTab === "customer") customerTabRef.current?.focus();
+      else operationsTabRef.current?.focus();
+    }
+  };
+
   return (
     <div className="relative w-full max-w-xl mx-auto space-y-3">
 
-      {/* View Switcher Controls */}
-      <div className="flex items-center justify-between bg-white p-1.5 rounded-2xl border border-[#DCE3E5] shadow-xs">
+      {/* View Switcher Semantic Tabs */}
+      <div
+        role="tablist"
+        aria-label={language === "id" ? "Pilihan Tampilan Sistem" : "System View Switcher"}
+        onKeyDown={handleTabKeyDown}
+        className="flex items-center justify-between bg-white p-1.5 rounded-2xl border border-[#DCE3E5] shadow-xs"
+      >
         <button
+          ref={customerTabRef}
           type="button"
+          role="tab"
+          id="hero-tab-customer"
+          aria-selected={activeTab === "customer"}
+          aria-controls="hero-tabpanel-customer"
+          tabIndex={activeTab === "customer" ? 0 : -1}
           onClick={() => setActiveTab("customer")}
           className={
-            "flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer " +
+            "flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568] " +
             (activeTab === "customer"
               ? "bg-[#17324D] text-white shadow-xs"
               : "text-[#667681] hover:text-[#101C24] hover:bg-[#F7F7F3]")
@@ -38,11 +61,18 @@ export function DualViewHeroMockup() {
           <Globe className="w-3.5 h-3.5" />
           <span>{language === "id" ? labels.customerView.id : labels.customerView.en}</span>
         </button>
+
         <button
+          ref={operationsTabRef}
           type="button"
+          role="tab"
+          id="hero-tab-operations"
+          aria-selected={activeTab === "operations"}
+          aria-controls="hero-tabpanel-operations"
+          tabIndex={activeTab === "operations" ? 0 : -1}
           onClick={() => setActiveTab("operations")}
           className={
-            "flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer " +
+            "flex-1 flex items-center justify-center gap-2 py-2 px-3 rounded-xl text-xs font-bold transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568] " +
             (activeTab === "operations"
               ? "bg-[#177568] text-white shadow-xs"
               : "text-[#667681] hover:text-[#101C24] hover:bg-[#F7F7F3]")
@@ -69,16 +99,20 @@ export function DualViewHeroMockup() {
           <div className="w-8" />
         </div>
 
-        {/* Dynamic View */}
+        {/* Dynamic View Panel with initial={false} to prevent blank render */}
         <div className="p-5 sm:p-6">
           {activeTab === "customer" ? (
             /* VIEW 1: CUSTOMER VIEW */
             <motion.div
               key="customer-view"
-              initial={{ opacity: 0, y: 8 }}
+              role="tabpanel"
+              id="hero-tabpanel-customer"
+              aria-labelledby="hero-tab-customer"
+              tabIndex={0}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-4 text-[#101C24]"
+              transition={{ duration: 0.25 }}
+              className="space-y-4 text-[#101C24] focus-visible:outline-none"
             >
               <div className="flex items-center justify-between pb-3 border-b border-[#DCE3E5]">
                 <div className="flex items-center gap-2">
@@ -140,10 +174,14 @@ export function DualViewHeroMockup() {
             /* VIEW 2: OPERATIONS VIEW */
             <motion.div
               key="operations-view"
-              initial={{ opacity: 0, y: 8 }}
+              role="tabpanel"
+              id="hero-tabpanel-operations"
+              aria-labelledby="hero-tab-operations"
+              tabIndex={0}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="space-y-4 text-[#101C24]"
+              transition={{ duration: 0.25 }}
+              className="space-y-4 text-[#101C24] focus-visible:outline-none"
             >
               <div className="flex items-center justify-between pb-3 border-b border-[#DCE3E5]">
                 <div className="flex items-center gap-2">

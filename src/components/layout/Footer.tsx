@@ -79,7 +79,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/#erp" className="hover:text-white transition-colors">
-                  {language === "id" ? "Kemampuan Enterprise" : "Enterprise Capability"}
+                  {language === "id" ? "Kemampuan Sistem Perusahaan" : "Enterprise Capability"}
                 </Link>
               </li>
             </ul>

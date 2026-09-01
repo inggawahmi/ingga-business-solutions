@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { useLanguage } from "@/lib/languageContext";
@@ -12,6 +12,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [solusiDropdown, setSolusiDropdown] = useState(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const { language, t } = useLanguage();
 
   useEffect(() => {
@@ -38,6 +40,20 @@ export function Navbar() {
     }
   }, [mobileOpen]);
 
+  const handleDropdownKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      setSolusiDropdown(false);
+      triggerRef.current?.focus();
+    }
+  };
+
+  const handleBlur = (e: React.FocusEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget as Node)) {
+      setSolusiDropdown(false);
+    }
+  };
+
   const navLabels = {
     solutions: { id: "Solusi", en: "Solutions" },
     erp: { id: "ERP", en: "ERP" },
@@ -53,19 +69,19 @@ export function Navbar() {
   const solutionLinks = [
     {
       title: { id: "Website & Kehadiran Digital", en: "Website & Digital Presence" },
-      desc: { id: "Company profile dan portal customer", en: "Company profiles and customer portals" },
+      desc: { id: "Profil perusahaan dan portal pelanggan", en: "Company profiles and customer portals" },
       href: "/#solusi",
       icon: Globe,
     },
     {
       title: { id: "Sistem Bisnis Custom", en: "Custom Business Systems" },
-      desc: { id: "Workflow internal & kontrol inventory", en: "Internal workflows & inventory control" },
+      desc: { id: "Proses internal dan pengelolaan persediaan", en: "Internal workflows & inventory control" },
       href: "/solusi/inventory-pos",
       icon: LayoutGrid,
     },
     {
       title: { id: "ERP Asuransi & Reasuransi", en: "Insurance & Reinsurance ERP" },
-      desc: { id: "Penempatan risiko & ledger multi-currency", en: "Placement pipelines & multi-currency ledgers" },
+      desc: { id: "Penempatan risiko dan pencatatan transaksi lintas mata uang", en: "Placement pipelines & multi-currency ledgers" },
       href: "/solusi/erp-insurance-reinsurance",
       icon: ShieldCheck,
     },
@@ -107,32 +123,50 @@ export function Navbar() {
             className="hidden md:flex items-center gap-1 text-xs font-semibold text-[#101C24]"
             aria-label={t(navLabels.mobileMenu)}
           >
-            {/* Dropdown Solusi */}
+            {/* Dropdown Solusi with Full Keyboard & Click Support */}
             <div
+              ref={dropdownRef}
               className="relative"
               onMouseEnter={() => setSolusiDropdown(true)}
               onMouseLeave={() => setSolusiDropdown(false)}
+              onBlur={handleBlur}
+              onKeyDown={handleDropdownKeyDown}
             >
               <button
+                ref={triggerRef}
                 type="button"
-                className="flex items-center gap-1 px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors cursor-pointer"
+                id="desktop-solutions-trigger"
                 aria-expanded={solusiDropdown}
                 aria-haspopup="true"
+                aria-controls="desktop-solutions-menu"
+                onClick={() => setSolusiDropdown((prev) => !prev)}
+                className="flex items-center gap-1 px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
               >
                 <span>{t(navLabels.solutions)}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-[#667681]" />
+                <ChevronDown
+                  className={
+                    "w-3.5 h-3.5 text-[#667681] transition-transform " +
+                    (solusiDropdown ? "rotate-180" : "")
+                  }
+                />
               </button>
 
               {solusiDropdown && (
-                <div className="absolute top-full left-0 mt-1 w-80 bg-white rounded-2xl border border-[#DCE3E5] shadow-lg p-2 flex flex-col gap-1 z-50">
+                <div
+                  id="desktop-solutions-menu"
+                  role="menu"
+                  aria-labelledby="desktop-solutions-trigger"
+                  className="absolute top-full left-0 mt-1 w-80 bg-white rounded-2xl border border-[#DCE3E5] shadow-lg p-2 flex flex-col gap-1 z-50"
+                >
                   {solutionLinks.map((sol) => {
                     const Icon = sol.icon;
                     return (
                       <Link
                         key={sol.href}
                         href={sol.href}
+                        role="menuitem"
                         onClick={() => setSolusiDropdown(false)}
-                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F7F7F3] transition-colors group"
+                        className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-[#F7F7F3] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
                       >
                         <div className="w-8 h-8 rounded-lg bg-[#F7F7F3] text-[#17324D] flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-[#177568] group-hover:text-white transition-colors">
                           <Icon className="w-4 h-4" />
@@ -154,25 +188,25 @@ export function Navbar() {
 
             <Link
               href="/#erp"
-              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
             >
               {t(navLabels.erp)}
             </Link>
             <Link
               href="/#pengalaman"
-              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
             >
               {t(navLabels.experience)}
             </Link>
             <Link
               href="/#cara-kerja"
-              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
             >
               {t(navLabels.process)}
             </Link>
             <Link
               href="/#tentang"
-              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors"
+              className="px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
             >
               {t(navLabels.about)}
             </Link>
@@ -195,7 +229,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-2 rounded-xl bg-white border border-[#DCE3E5] text-[#101C24] focus-visible:ring-2 focus-visible:ring-[#177568]"
+              className="p-2 rounded-xl bg-white border border-[#DCE3E5] text-[#101C24] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
               aria-label={mobileOpen ? t(navLabels.closeMenu) : t(navLabels.openMenu)}
               aria-expanded={mobileOpen}
             >
@@ -227,7 +261,9 @@ export function Navbar() {
                   className="px-3 py-2 rounded-xl hover:bg-[#F7F7F3] text-xs flex items-center justify-between"
                 >
                   <span className="font-bold text-[#101C24]">{t(sol.title)}</span>
-                  <span className="text-[10px] text-[#177568] font-semibold">Buka →</span>
+                  <span className="text-[10px] text-[#177568] font-semibold">
+                    {language === "id" ? "Buka →" : "Open →"}
+                  </span>
                 </Link>
               ))}
 

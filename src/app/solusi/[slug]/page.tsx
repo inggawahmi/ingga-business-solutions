@@ -31,6 +31,7 @@ export async function generateMetadata({
   }
 
   const pageUrl = `${SITE_URL}/solusi/${slug}`;
+  const fullTitle = `${sol.seoTitle.id} | ${BUSINESS_CONFIG.brand}`;
 
   return {
     title: sol.seoTitle.id,
@@ -39,7 +40,7 @@ export async function generateMetadata({
       canonical: pageUrl,
     },
     openGraph: {
-      title: sol.seoTitle.id,
+      title: fullTitle,
       description: sol.seoDescription.id,
       url: pageUrl,
       siteName: BUSINESS_CONFIG.brand,
@@ -48,7 +49,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: sol.seoTitle.id,
+      title: fullTitle,
       description: sol.seoDescription.id,
     },
   };

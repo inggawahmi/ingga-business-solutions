@@ -16,12 +16,12 @@ export function DualSolutionsSection() {
       en: "Present Your Business with Confidence"
     },
     description: {
-      id: "Website yang membantu calon pelanggan memahami bisnis, layanan, pengalaman, dan cara memulai percakapan dengan lebih jelas.",
-      en: "A professional website that helps prospective customers understand your business, services, experience, and next steps."
+      id: "Website yang membantu calon pelanggan memahami layanan, portofolio, dan cara memulai konsultasi dengan jelas.",
+      en: "A professional website that helps prospective customers understand your services, work examples, and next steps."
     },
     results: [
       { id: "Informasi bisnis tersusun rapi", en: "Clear and structured business information" },
-      { id: "Layanan dan portofolio lebih mudah dipahami", en: "Services and work examples are easier to understand" },
+      { id: "Layanan dan portofolio mudah dipahami", en: "Services and work examples are easy to understand" },
       { id: "Jalur konsultasi lebih jelas", en: "A clearer path to consultation" },
       { id: "Kunjungan website dapat dipantau", en: "Website visits can be measured" },
     ],
@@ -36,13 +36,13 @@ export function DualSolutionsSection() {
       en: "Bring Structure to Manual and Disconnected Processes"
     },
     description: {
-      id: "Aplikasi internal yang mengikuti proses kerja bisnis agar data, tanggung jawab, dan status pekerjaan lebih mudah dipantau.",
-      en: "Internal applications built around your workflow, making data, responsibilities, and progress easier to manage."
+      id: "Aplikasi internal yang mengikuti alur bisnis agar data, tanggung jawab, dan status pekerjaan mudah dipantau.",
+      en: "Internal applications built around your workflow, making data, responsibilities, and progress easy to manage."
     },
     results: [
       { id: "Mengurangi pencatatan berulang", en: "Reduce repeated data entry" },
-      { id: "Status pekerjaan lebih mudah dilihat", en: "Track work status more clearly" },
-      { id: "Persetujuan lebih mudah ditelusuri", en: "Make approvals easier to follow" },
+      { id: "Status pekerjaan mudah dilihat", en: "Track work status clearly" },
+      { id: "Persetujuan mudah ditelusuri", en: "Make approvals easy to follow" },
       { id: "Laporan lebih cepat tersedia", en: "Access reports sooner" },
     ],
     cta: { id: "Pelajari Sistem Bisnis", en: "Explore Business Systems" }

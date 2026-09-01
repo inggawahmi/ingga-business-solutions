@@ -208,8 +208,8 @@ export const SOLUTIONS_MAP_BILINGUAL: Record<string, SolutionPageDataBilingual> 
       }
     ],
     seoTitle: {
-      id: "Sistem ERP Asuransi & Reasuransi Custom | Ingga Business Solutions",
-      en: "Custom Insurance & Reinsurance ERP Systems | Ingga Business Solutions"
+      id: "Sistem ERP Asuransi & Reasuransi Custom",
+      en: "Custom Insurance & Reinsurance ERP Systems"
     },
     seoDescription: {
       id: "Pengembangan sistem ERP custom untuk operasional asuransi & reasuransi: penempatan risiko, komisi multi-currency, nota debit/kredit, SOA, dan audit trail.",
@@ -357,8 +357,8 @@ export const SOLUTIONS_MAP_BILINGUAL: Record<string, SolutionPageDataBilingual> 
       }
     ],
     seoTitle: {
-      id: "Sistem Inventory & Mutasi Persediaan Custom | Ingga Business Solutions",
-      en: "Custom Inventory & Stock Control Systems | Ingga Business Solutions"
+      id: "Sistem Inventory & Mutasi Persediaan Custom",
+      en: "Custom Inventory & Stock Control Systems"
     },
     seoDescription: {
       id: "Jasa pembuatan sistem inventory custom: mutasi stok multi-gudang, digital stock opname, alur persetujuan pengadaan, dan laporan persediaan real-time.",
@@ -498,8 +498,8 @@ export const SOLUTIONS_MAP_BILINGUAL: Record<string, SolutionPageDataBilingual> 
       }
     ],
     seoTitle: {
-      id: "Jasa Pembuatan Website Bisnis & Katalog Digital | Ingga Business Solutions",
-      en: "Business Websites & Digital Catalog Services | Ingga Business Solutions"
+      id: "Jasa Pembuatan Website Bisnis & Katalog Digital",
+      en: "Business Websites & Digital Catalog Services"
     },
     seoDescription: {
       id: "Pembuatan website profesional untuk bisnis dan usaha lokal: katalog layanan terstruktur, lokasi Google Maps, jam operasional, dan jalur inquiry jelas.",

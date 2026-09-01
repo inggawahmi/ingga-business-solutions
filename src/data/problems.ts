@@ -21,8 +21,8 @@ export const PROBLEM_SECTION_HEADER: {
     en: "The Business Is Running, but the Process Is Still Disconnected"
   },
   subheadline: {
-    id: "Semakin bisnis berkembang, semakin sulit mengandalkan chat, spreadsheet, dan pencatatan yang tersebar.",
-    en: "As a business grows, relying on chat threads, spreadsheets, and fragmented notes creates friction."
+    id: "Semakin bisnis berkembang, semakin sulit mengandalkan pencatatan yang tersebar.",
+    en: "As business grows, relying on fragmented notes creates operational friction."
   },
   closing: {
     id: "Tidak semua masalah membutuhkan sistem besar. Memperbaiki satu proses yang tepat sering kali menjadi langkah awal yang paling masuk akal.",
@@ -38,8 +38,8 @@ export const PROBLEM_SIGNALS_BILINGUAL: ProblemSignalBilingual[] = [
       en: "The business is difficult to understand"
     },
     description: {
-      id: "Layanan, portofolio, dan informasi penting tersebar sehingga calon pelanggan kesulitan memahami bisnis Anda.",
-      en: "Services, work examples, and important information are scattered across different platforms."
+      id: "Layanan dan portofolio tersebar sehingga calon pelanggan kesulitan memahami bisnis Anda.",
+      en: "Services and work examples are scattered, making it hard for prospects to understand your value."
     }
   },
   {
@@ -49,8 +49,8 @@ export const PROBLEM_SIGNALS_BILINGUAL: ProblemSignalBilingual[] = [
       en: "The same data is entered repeatedly"
     },
     description: {
-      id: "Informasi yang sama dipindahkan antara chat, spreadsheet, dokumen, dan aplikasi lain.",
-      en: "Information moves manually between chat, spreadsheets, documents, and separate applications."
+      id: "Informasi yang sama dipindahkan secara manual antar chat, spreadsheet, dan dokumen.",
+      en: "The same information moves manually between chat messages, spreadsheets, and documents."
     }
   },
   {
@@ -61,7 +61,7 @@ export const PROBLEM_SIGNALS_BILINGUAL: ProblemSignalBilingual[] = [
     },
     description: {
       id: "Keputusan penting bergantung pada percakapan yang mudah tenggelam dan sulit ditelusuri.",
-      en: "Important decisions depend on conversations that are difficult to track."
+      en: "Important decisions depend on unorganized conversations that are difficult to track."
     }
   },
   {
@@ -72,7 +72,7 @@ export const PROBLEM_SIGNALS_BILINGUAL: ProblemSignalBilingual[] = [
     },
     description: {
       id: "Tim menghabiskan waktu mengumpulkan data sebelum pimpinan dapat melihat kondisi bisnis.",
-      en: "The team spends time compiling data before management can see what is happening."
+      en: "The team spends time compiling data before management can see business performance."
     }
   }
 ];

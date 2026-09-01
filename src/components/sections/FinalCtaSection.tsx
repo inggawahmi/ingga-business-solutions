@@ -2,41 +2,28 @@
 
 import React, { useState } from "react";
 import { useLanguage } from "@/lib/languageContext";
-import { formatInquiryMessage, buildWhatsAppUrl } from "@/lib/whatsapp";
+import {
+  RequirementType,
+  REQUIREMENT_OPTIONS,
+  formatInquiryMessage,
+  buildWhatsAppUrl,
+  InquiryFormData,
+} from "@/lib/whatsapp";
 import { Send, AlertCircle, Sparkles, ShieldCheck } from "lucide-react";
 
 export function FinalCtaSection() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<InquiryFormData>({
     name: "",
     companyName: "",
     contact: "",
-    requirementType: "Website profesional",
+    requirementType: "website",
     problemDescription: "",
     currentWorkflow: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  const options = {
-    id: [
-      "Website profesional",
-      "Sistem bisnis custom",
-      "Inventory atau operasional",
-      "ERP",
-      "ERP asuransi atau reasuransi",
-      "Belum yakin",
-    ],
-    en: [
-      "Professional website",
-      "Custom business system",
-      "Inventory or operations",
-      "ERP",
-      "Insurance or reinsurance ERP",
-      "Not sure yet",
-    ],
-  };
 
   const labels = {
     bannerEyebrow: { id: "Mulai Diskusi Kebutuhan", en: "Start the Conversation" },
@@ -49,7 +36,7 @@ export function FinalCtaSection() {
       en: "Share your current situation. We will review your operational context to determine whether a professional website, workflow improvement, custom system, or ERP is the most practical path forward."
     },
     bannerMicro: {
-      id: "Tidak harus sudah memiliki requirement teknis. Cukup jelaskan masalah dan proses yang sedang berjalan.",
+      id: "Tidak harus sudah memiliki kebutuhan teknis. Cukup jelaskan masalah dan proses yang sedang berjalan.",
       en: "No technical specifications are required. Simply describe what is happening in your business."
     },
     formTitle: { id: "Ceritakan Kebutuhan Anda", en: "Tell Me What You Need" },
@@ -88,26 +75,31 @@ export function FinalCtaSection() {
       err.problemDescription = language === "id" ? labels.validation.problem.id : labels.validation.problem.en;
     }
     setErrors(err);
-    return Object.keys(err).length === 0;
+
+    if (Object.keys(err).length > 0) {
+      // Accessibility: Focus first invalid input field
+      const firstKey = Object.keys(err)[0];
+      const targetId =
+        firstKey === "name"
+          ? "input-name"
+          : firstKey === "contact"
+          ? "input-contact"
+          : "input-prob";
+      const el = document.getElementById(targetId);
+      el?.focus();
+      return false;
+    }
+    return true;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
-    const message = formatInquiryMessage({
-      name: formData.name,
-      businessName: formData.companyName || "Bisnis/Perusahaan",
-      businessCategory: formData.requirementType,
-      service: formData.requirementType,
-      problem: formData.problemDescription + (formData.currentWorkflow ? " \n(Cara kerja saat ini: " + formData.currentWorkflow + ")" : ""),
-    });
-
+    const message = formatInquiryMessage(formData, language);
     const url = buildWhatsAppUrl(message);
     window.open(url, "_blank", "noopener,noreferrer");
   };
-
-  const currentOptions = language === "id" ? options.id : options.en;
 
   return (
     <section id="kontak" className="py-20 sm:py-24 bg-[#17324D] text-white relative overflow-hidden">
@@ -156,6 +148,8 @@ export function FinalCtaSection() {
                   id="input-name"
                   type="text"
                   required
+                  aria-invalid={Boolean(errors.name)}
+                  aria-describedby={errors.name ? "input-name-error" : undefined}
                   value={formData.name}
                   onChange={(e) => {
                     setFormData({ ...formData, name: e.target.value });
@@ -168,7 +162,7 @@ export function FinalCtaSection() {
                   }
                 />
                 {errors.name && (
-                  <p role="alert" className="text-[11px] text-rose-600 flex items-center gap-1 mt-1 font-medium">
+                  <p id="input-name-error" role="alert" className="text-[11px] text-rose-600 flex items-center gap-1 mt-1 font-medium">
                     <AlertCircle className="w-3 h-3" /> {errors.name}
                   </p>
                 )}
@@ -182,7 +176,7 @@ export function FinalCtaSection() {
                 <input
                   id="input-comp"
                   type="text"
-                  value={formData.companyName}
+                  value={formData.companyName || ""}
                   onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                   placeholder={language === "id" ? "Contoh: PT Surya Logistik" : "e.g. Apex Logistics"}
                   className="w-full px-4 py-2.5 rounded-xl border border-[#DCE3E5] text-[#101C24] bg-[#F7F7F3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#177568] transition-all"
@@ -200,6 +194,8 @@ export function FinalCtaSection() {
                   id="input-contact"
                   type="text"
                   required
+                  aria-invalid={Boolean(errors.contact)}
+                  aria-describedby={errors.contact ? "input-contact-error" : undefined}
                   value={formData.contact}
                   onChange={(e) => {
                     setFormData({ ...formData, contact: e.target.value });
@@ -212,13 +208,13 @@ export function FinalCtaSection() {
                   }
                 />
                 {errors.contact && (
-                  <p role="alert" className="text-[11px] text-rose-600 flex items-center gap-1 mt-1 font-medium">
+                  <p id="input-contact-error" role="alert" className="text-[11px] text-rose-600 flex items-center gap-1 mt-1 font-medium">
                     <AlertCircle className="w-3 h-3" /> {errors.contact}
                   </p>
                 )}
               </div>
 
-              {/* Jenis Kebutuhan */}
+              {/* Jenis Kebutuhan with Stable Values */}
               <div className="space-y-1.5">
                 <label htmlFor="input-req" className="font-bold text-[#101C24] block text-xs">
                   {language === "id" ? labels.requirementType.id : labels.requirementType.en}
@@ -226,11 +222,18 @@ export function FinalCtaSection() {
                 <select
                   id="input-req"
                   value={formData.requirementType}
-                  onChange={(e) => setFormData({ ...formData, requirementType: e.target.value })}
+                  onChange={(e) =>
+                    setFormData({
+                      ...formData,
+                      requirementType: e.target.value as RequirementType,
+                    })
+                  }
                   className="w-full px-4 py-2.5 rounded-xl border border-[#DCE3E5] text-[#101C24] bg-[#F7F7F3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#177568] transition-all cursor-pointer"
                 >
-                  {currentOptions.map((opt) => (
-                    <option key={opt} value={opt}>{opt}</option>
+                  {REQUIREMENT_OPTIONS.map((opt) => (
+                    <option key={opt.value} value={opt.value}>
+                      {t(opt.label)}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -245,6 +248,8 @@ export function FinalCtaSection() {
                 id="input-prob"
                 required
                 rows={3}
+                aria-invalid={Boolean(errors.problemDescription)}
+                aria-describedby={errors.problemDescription ? "input-prob-error" : undefined}
                 value={formData.problemDescription}
                 onChange={(e) => {
                   setFormData({ ...formData, problemDescription: e.target.value });
@@ -261,7 +266,7 @@ export function FinalCtaSection() {
                 }
               />
               {errors.problemDescription && (
-                <p role="alert" className="text-[11px] text-rose-600 flex items-center gap-1 mt-1 font-medium">
+                <p id="input-prob-error" role="alert" className="text-[11px] text-rose-600 flex items-center gap-1 mt-1 font-medium">
                   <AlertCircle className="w-3 h-3" /> {errors.problemDescription}
                 </p>
               )}
@@ -275,7 +280,7 @@ export function FinalCtaSection() {
               <input
                 id="input-curr"
                 type="text"
-                value={formData.currentWorkflow}
+                value={formData.currentWorkflow || ""}
                 onChange={(e) => setFormData({ ...formData, currentWorkflow: e.target.value })}
                 placeholder={
                   language === "id"

@@ -22,8 +22,8 @@ export function ErpSpecialistSection() {
       en: "For companies that need connected processes, controlled data, clear responsibilities, and consistent reporting.",
     },
     mainExplanation: {
-      id: "ERP dibangun berdasarkan cara perusahaan bekerja. Implementasinya dapat dilakukan bertahap, dimulai dari proses yang paling penting.",
-      en: "ERP should follow how the company works. Implementation can be phased, starting with the processes that matter most.",
+      id: "ERP dibangun mengikuti proses kerja perusahaan dan dapat diterapkan secara bertahap mulai dari modul prioritas.",
+      en: "ERP should follow how the company works. Implementation can be phased, starting with priority modules."
     },
     benefits: [
       { id: "Data penting tersusun dalam satu alur", en: "Keep important data within one connected process" },
@@ -40,12 +40,12 @@ export function ErpSpecialistSection() {
       en: "Experience with Insurance, Reinsurance, and Multi-Currency Operations",
     },
     specializationDesc: {
-      id: "Berpengalaman menangani sistem yang melibatkan banyak tahapan, dokumen, transaksi, perhitungan, dan kebutuhan pelaporan.",
-      en: "Experience building systems that involve multiple stages, documents, transactions, calculations, and reporting requirements.",
+      id: "Berpengalaman menangani sistem dengan banyak tahapan dokumen, perhitungan transaksi, dan audit pelaporan.",
+      en: "Experience building multi-stage transactional systems, calculations, and compliance reporting.",
     },
     supportingCopy: {
-      id: "Pemahaman domain membantu proses analisis kebutuhan dilakukan dengan konteks yang lebih matang.",
-      en: "Domain knowledge enables a more informed and relevant discovery process.",
+      id: "Pemahaman domain memastikan proses analisis kebutuhan berjalan terarah.",
+      en: "Domain knowledge ensures a focused discovery process.",
     },
     primaryCta: {
       id: "Bahas Kebutuhan ERP",
