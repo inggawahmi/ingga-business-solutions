@@ -1,47 +1,66 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MessageCircle } from "lucide-react";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import Link from "next/link";
+import { useLanguage } from "@/lib/languageContext";
+import { MessageSquare } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export function FloatingWhatsApp() {
   const [visible, setVisible] = useState(false);
+  const [inContactSection, setInContactSection] = useState(false);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 300);
+      setVisible(window.scrollY > 400);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Hide sticky CTA when #kontak section is in viewport
+    const contactEl = document.getElementById("kontak");
+    let observer: IntersectionObserver | null = null;
+    if (contactEl) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          setInContactSection(entry.isIntersecting);
+        },
+        { threshold: 0.1 }
+      );
+      observer.observe(contactEl);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (observer && contactEl) observer.unobserve(contactEl);
+    };
   }, []);
 
-  if (!visible) return null;
-
-  const url = buildWhatsAppUrl("Halo Ingga, saya ingin mendiskusikan kebutuhan website/sistem bisnis saya.");
+  const showButton = visible && !inContactSection;
+  const label = language === "id" ? "Diskusikan Kebutuhan" : "Discuss Your Needs";
 
   return (
-    <aside
-      aria-label="Kontak Cepat WhatsApp"
-      className="fixed bottom-6 right-6 z-30 flex items-center"
-    >
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-cta="whatsapp"
-        data-source="floating-button"
-        className="group flex items-center gap-2.5 px-4 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2"
-        aria-label="Buka WhatsApp untuk mendiskusikan kebutuhan bisnis"
-      >
-        <div className="relative">
-          <MessageCircle className="w-5 h-5" aria-hidden="true" />
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full animate-ping" />
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full" />
-        </div>
-        <span className="text-xs font-bold tracking-wide pr-1 hidden sm:inline">
-          Diskusikan Kebutuhan
-        </span>
-      </a>
-    </aside>
+    <AnimatePresence>
+      {showButton && (
+        <motion.div
+          initial={{ opacity: 0, y: 16, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 16, scale: 0.95 }}
+          transition={{ duration: 0.2 }}
+          className="fixed bottom-5 right-5 z-30"
+        >
+          <Link
+            href="#kontak"
+            data-cta="sticky-consultation"
+            aria-label={label}
+            className="inline-flex items-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-2xl bg-[#17324D] hover:bg-[#101C24] text-white font-bold text-xs sm:text-sm shadow-lg border border-white/20 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
+          >
+            <MessageSquare className="w-4 h-4 text-[#D79445]" />
+            <span>{label}</span>
+          </Link>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

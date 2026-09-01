@@ -1,23 +1,27 @@
 import { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/site";
-import { SOLUTIONS_MAP } from "@/data/solutions";
+import { SOLUTIONS_MAP_BILINGUAL } from "@/data/solutions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
+  const lastModified = new Date();
+
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: SITE_URL,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
+      lastModified,
+      changeFrequency: "weekly",
       priority: 1.0,
     },
   ];
 
-  const solutionRoutes = Object.keys(SOLUTIONS_MAP).map((slug) => ({
+  const solutionRoutes: MetadataRoute.Sitemap = Object.keys(
+    SOLUTIONS_MAP_BILINGUAL
+  ).map((slug) => ({
     url: `${SITE_URL}/solusi/${slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
+    lastModified,
+    changeFrequency: "monthly",
+    priority: 0.8,
   }));
 
-  return [...routes, ...solutionRoutes];
+  return [...staticRoutes, ...solutionRoutes];
 }

@@ -1,40 +1,78 @@
-export interface ProblemSignal {
+import { LocalizedText } from "@/types/language";
+
+export interface ProblemSignalBilingual {
   num: string;
-  title: string;
-  description: string;
+  title: LocalizedText;
+  description: LocalizedText;
 }
 
-export const PROBLEM_SIGNALS: ProblemSignal[] = [
+export const PROBLEM_SECTION_HEADER: {
+  eyebrow: LocalizedText;
+  heading: LocalizedText;
+  subheadline: LocalizedText;
+  closing: LocalizedText;
+} = {
+  eyebrow: {
+    id: "Apakah Ini Terjadi di Bisnis Anda?",
+    en: "Is This Happening in Your Business?"
+  },
+  heading: {
+    id: "Bisnis Sudah Berjalan, tetapi Prosesnya Belum Benar-Benar Terhubung",
+    en: "The Business Is Running, but the Process Is Still Disconnected"
+  },
+  subheadline: {
+    id: "Semakin bisnis berkembang, semakin sulit mengandalkan chat, spreadsheet, dan pencatatan yang tersebar.",
+    en: "As a business grows, relying on chat threads, spreadsheets, and fragmented notes creates friction."
+  },
+  closing: {
+    id: "Tidak semua masalah membutuhkan sistem besar. Memperbaiki satu proses yang tepat sering kali menjadi langkah awal yang paling masuk akal.",
+    en: "Not every problem requires a large system. Improving one critical process is often the most practical place to start."
+  }
+};
+
+export const PROBLEM_SIGNALS_BILINGUAL: ProblemSignalBilingual[] = [
   {
     num: "01",
-    title: "Informasi bisnis sulit dipahami customer",
-    description: "Layanan, portfolio, dan informasi penting tersebar di beberapa platform sehingga calon pembeli ragu sebelum menghubungi Anda."
+    title: {
+      id: "Informasi bisnis belum meyakinkan",
+      en: "The business is difficult to understand"
+    },
+    description: {
+      id: "Layanan, portofolio, dan informasi penting tersebar sehingga calon pelanggan kesulitan memahami bisnis Anda.",
+      en: "Services, work examples, and important information are scattered across different platforms."
+    }
   },
   {
     num: "02",
-    title: "Inquiry tidak tertangani dengan rapi",
-    description: "Permintaan customer masuk dari berbagai channel tanpa alur tindak lanjut dan penugasan yang jelas bagi tim."
+    title: {
+      id: "Data dicatat berulang kali",
+      en: "The same data is entered repeatedly"
+    },
+    description: {
+      id: "Informasi yang sama dipindahkan antara chat, spreadsheet, dokumen, dan aplikasi lain.",
+      en: "Information moves manually between chat, spreadsheets, documents, and separate applications."
+    }
   },
   {
     num: "03",
-    title: "Data dicatat berulang kali",
-    description: "Informasi yang sama harus disalin manual antara chat, spreadsheet, dokumen penagihan, dan aplikasi pencatatan lain."
+    title: {
+      id: "Persetujuan dan tindak lanjut terlambat",
+      en: "Approvals and follow-ups are delayed"
+    },
+    description: {
+      id: "Keputusan penting bergantung pada percakapan yang mudah tenggelam dan sulit ditelusuri.",
+      en: "Important decisions depend on conversations that are difficult to track."
+    }
   },
   {
     num: "04",
-    title: "Approval membuat pekerjaan tertunda",
-    description: "Keputusan dan persetujuan operasional bergantung pada percakapan chat yang mudah tenggelam dan sulit ditelusuri riwayatnya."
-  },
-  {
-    num: "05",
-    title: "Laporan masih dibuat manual",
-    description: "Tim menghabiskan waktu berjam-jam untuk merekap data sebelum pimpinan bisnis dapat melihat kondisi operasional terkini."
-  },
-  {
-    num: "06",
-    title: "Software yang ada tidak mengikuti proses kerja",
-    description: "Bisnis akhirnya terpaksa menyesuaikan diri dengan keterbatasan aplikasi berlangganan generik, bukan sebaliknya."
+    title: {
+      id: "Laporan masih dibuat manual",
+      en: "Reports still take manual effort"
+    },
+    description: {
+      id: "Tim menghabiskan waktu mengumpulkan data sebelum pimpinan dapat melihat kondisi bisnis.",
+      en: "The team spends time compiling data before management can see what is happening."
+    }
   }
 ];
-
-export const PROBLEM_CLOSING_STATEMENT = "Tidak semua masalah membutuhkan sistem besar. Terkadang, satu proses yang diperbaiki dengan tepat sudah memberikan perubahan yang berarti.";

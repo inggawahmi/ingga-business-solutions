@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG, SITE_URL } from "@/config/site";
 import { BUSINESS_CONFIG } from "@/config/business";
+import { LanguageProvider } from "@/lib/languageContext";
 import { SkipToContent } from "@/components/layout/SkipToContent";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -23,14 +24,12 @@ export const metadata: Metadata = {
   },
   description: SITE_CONFIG.description,
   keywords: [
-    "jasa website cafe",
-    "jasa website umkm",
-    "menu digital whatsapp",
-    "jasa pos kasir bekasi",
-    "sistem inventory gudang",
-    "custom erp jakarta",
-    "sistem asuransi reasuransi",
-    "website profesional jabodetabek"
+    "jasa pembuatan website bisnis",
+    "sistem bisnis custom",
+    "aplikasi internal perusahaan",
+    "erp custom bekasi jakarta",
+    "erp asuransi reasuransi",
+    "custom software jabodetabek"
   ],
   authors: [{ name: BUSINESS_CONFIG.owner }],
   creator: BUSINESS_CONFIG.owner,
@@ -66,7 +65,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Accurate JSON-LD schema without fake ratings or fake reviews
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -92,7 +90,7 @@ export default function RootLayout({
     founder: {
       "@type": "Person",
       name: BUSINESS_CONFIG.owner,
-      jobTitle: "Fullstack Developer & Technical Lead"
+      jobTitle: "Fullstack Developer & Systems Specialist"
     }
   };
 
@@ -104,14 +102,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
-        <SkipToContent />
-        <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <FloatingWhatsApp />
+      <body className="antialiased min-h-screen flex flex-col selection:bg-[#177568] selection:text-white">
+        <LanguageProvider>
+          <SkipToContent />
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <FloatingWhatsApp />
+        </LanguageProvider>
       </body>
     </html>
   );

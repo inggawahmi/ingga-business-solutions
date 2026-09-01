@@ -1,14 +1,61 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { useLanguage } from "@/lib/languageContext";
 import { ShieldCheck, ArrowRight, CheckCircle2, Cpu } from "lucide-react";
 
 export function ErpSpecialistSection() {
-  const erpBenefits = [
-    "Data penting berada dalam satu alur yang lebih terkontrol.",
-    "Tanggung jawab dan hak akses dapat dibedakan dengan jelas.",
-    "Proses approval lebih mudah dipantau antar bagian.",
-    "Laporan dapat disusun dari data operasional yang konsisten.",
-  ];
+  const { language } = useLanguage();
+
+  const copy = {
+    eyebrow: {
+      id: "Kemampuan untuk Perusahaan",
+      en: "Enterprise Capability",
+    },
+    heading: {
+      id: "ERP yang Mengikuti Kompleksitas Proses Perusahaan",
+      en: "ERP Built Around Complex Business Operations",
+    },
+    subheadline: {
+      id: "Untuk perusahaan yang membutuhkan satu sistem untuk mengelola proses, data, tanggung jawab, dan pelaporan yang saling berkaitan.",
+      en: "For companies that need connected processes, controlled data, clear responsibilities, and consistent reporting.",
+    },
+    mainExplanation: {
+      id: "ERP dibangun berdasarkan cara perusahaan bekerja. Implementasinya dapat dilakukan bertahap, dimulai dari proses yang paling penting.",
+      en: "ERP should follow how the company works. Implementation can be phased, starting with the processes that matter most.",
+    },
+    benefits: [
+      { id: "Data penting tersusun dalam satu alur", en: "Keep important data within one connected process" },
+      { id: "Tanggung jawab dan akses lebih jelas", en: "Clarify responsibilities and access" },
+      { id: "Persetujuan lebih mudah dipantau", en: "Make approvals easier to monitor" },
+      { id: "Laporan menggunakan data yang konsisten", en: "Build reports from consistent operational data" },
+    ],
+    specializationLabel: {
+      id: "Pengalaman Khusus di Asuransi & Reasuransi",
+      en: "Insurance & Reinsurance Experience",
+    },
+    specializationHeading: {
+      id: "Memahami Proses Asuransi, Reasuransi, dan Transaksi Lintas Mata Uang",
+      en: "Experience with Insurance, Reinsurance, and Multi-Currency Operations",
+    },
+    specializationDesc: {
+      id: "Berpengalaman menangani sistem yang melibatkan banyak tahapan, dokumen, transaksi, perhitungan, dan kebutuhan pelaporan.",
+      en: "Experience building systems that involve multiple stages, documents, transactions, calculations, and reporting requirements.",
+    },
+    supportingCopy: {
+      id: "Pemahaman domain membantu proses analisis kebutuhan dilakukan dengan konteks yang lebih matang.",
+      en: "Domain knowledge enables a more informed and relevant discovery process.",
+    },
+    primaryCta: {
+      id: "Bahas Kebutuhan ERP",
+      en: "Discuss Your ERP Needs",
+    },
+    secondaryCta: {
+      id: "Lihat Pengalaman ERP",
+      en: "View ERP Experience",
+    },
+  };
 
   return (
     <section id="erp" className="py-20 sm:py-24 bg-[#101C24] text-white relative overflow-hidden">
@@ -18,29 +65,31 @@ export function ErpSpecialistSection() {
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#17324D] text-[#D79445] text-xs font-bold border border-[#177568]/40">
             <Cpu className="w-3.5 h-3.5" />
-            <span>Enterprise Capability</span>
+            <span>{language === "id" ? copy.eyebrow.id : copy.eyebrow.en}</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-            ERP untuk Proses Bisnis yang Tidak Bisa Diselesaikan Software Generik
+            {language === "id" ? copy.heading.id : copy.heading.en}
           </h2>
 
-          <p className="text-sm sm:text-base text-[#8D9B9D] leading-relaxed font-normal">
-            Untuk perusahaan dengan alur kerja, perhitungan, pengelolaan data, dan kebutuhan pelaporan yang lebih kompleks.
+          <p className="text-sm sm:text-base text-[#DCE3E5] leading-relaxed font-normal">
+            {language === "id" ? copy.subheadline.id : copy.subheadline.en}
           </p>
         </div>
 
         {/* Business-focused explanation banner */}
         <div className="bg-[#17324D]/60 rounded-3xl p-6 sm:p-8 border border-[#177568]/30 space-y-6">
           <p className="text-sm text-[#DCE3E5] leading-relaxed max-w-2xl">
-            ERP dirancang untuk menyatukan proses penting perusahaan dalam satu sistem yang mengikuti cara bisnis bekerja—bukan sekadar menambahkan sebanyak mungkin fitur.
+            {language === "id" ? copy.mainExplanation.id : copy.mainExplanation.en}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
-            {erpBenefits.map((b, idx) => (
+            {copy.benefits.map((b, idx) => (
               <div key={idx} className="p-4 rounded-2xl bg-[#101C24]/80 border border-[#1D2B34] space-y-2">
                 <CheckCircle2 className="w-4 h-4 text-[#177568]" />
-                <p className="text-xs text-[#DCE3E5] leading-relaxed">{b}</p>
+                <p className="text-xs text-[#DCE3E5] leading-relaxed">
+                  {language === "id" ? b.id : b.en}
+                </p>
               </div>
             ))}
           </div>
@@ -52,19 +101,19 @@ export function ErpSpecialistSection() {
             <div className="space-y-3 max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#177568] text-white text-xs font-bold">
                 <ShieldCheck className="w-3.5 h-3.5" />
-                <span>Pengalaman Khusus di Insurance & Reinsurance</span>
+                <span>{language === "id" ? copy.specializationLabel.id : copy.specializationLabel.en}</span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-                Memahami Alur Kompleks Asuransi, Reasuransi, dan Multi-Currency
+                {language === "id" ? copy.specializationHeading.id : copy.specializationHeading.en}
               </h3>
 
               <p className="text-xs sm:text-sm text-[#DCE3E5] leading-relaxed font-normal">
-                Berpengalaman menangani sistem untuk proses asuransi dan reasuransi yang melibatkan banyak tahapan, dokumen, transaksi, perhitungan, serta kebutuhan pelaporan.
+                {language === "id" ? copy.specializationDesc.id : copy.specializationDesc.en}
               </p>
 
-              <p className="text-xs text-[#8D9B9D] leading-relaxed">
-                Pengalaman domain ini membantu proses analisis kebutuhan dilakukan dengan pemahaman yang lebih matang terhadap kompleksitas bisnis insurance dan reinsurance.
+              <p className="text-xs text-[#DCE3E5]/80 leading-relaxed">
+                {language === "id" ? copy.supportingCopy.id : copy.supportingCopy.en}
               </p>
             </div>
 
@@ -73,14 +122,14 @@ export function ErpSpecialistSection() {
                 href="#kontak"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-[#177568] hover:bg-[#136055] text-white font-bold text-xs transition-colors shadow-xs"
               >
-                <span>Bahas Kebutuhan ERP</span>
+                <span>{language === "id" ? copy.primaryCta.id : copy.primaryCta.en}</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/solusi/erp-insurance-reinsurance"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold text-xs transition-colors"
               >
-                <span>Lihat Pengalaman Proyek ERP</span>
+                <span>{language === "id" ? copy.secondaryCta.id : copy.secondaryCta.en}</span>
               </Link>
             </div>
           </div>

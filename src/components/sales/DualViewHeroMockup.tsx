@@ -2,10 +2,23 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/lib/languageContext";
 import { Globe, LayoutGrid, ArrowRight, ShieldCheck } from "lucide-react";
 
 export function DualViewHeroMockup() {
   const [activeTab, setActiveTab] = useState<"customer" | "operations">("customer");
+  const { language } = useLanguage();
+
+  const labels = {
+    customerView: { id: "Tampilan Pelanggan", en: "Customer Experience" },
+    operationsView: { id: "Operasional Bisnis", en: "Business Operations" },
+    footerMicrocopy: {
+      id: "Dibuat mengikuti proses bisnis",
+      en: "Built around real business processes"
+    },
+    viewIndicatorCustomer: { id: "Sisi Depan Pelanggan", en: "Customer-Facing Side" },
+    viewIndicatorOperations: { id: "Sisi Operasional Internal", en: "Internal Operations Side" },
+  };
 
   return (
     <div className="relative w-full max-w-xl mx-auto space-y-3">
@@ -23,7 +36,7 @@ export function DualViewHeroMockup() {
           }
         >
           <Globe className="w-3.5 h-3.5" />
-          <span>Customer Experience</span>
+          <span>{language === "id" ? labels.customerView.id : labels.customerView.en}</span>
         </button>
         <button
           type="button"
@@ -36,7 +49,7 @@ export function DualViewHeroMockup() {
           }
         >
           <LayoutGrid className="w-3.5 h-3.5" />
-          <span>Business Operations</span>
+          <span>{language === "id" ? labels.operationsView.id : labels.operationsView.en}</span>
         </button>
       </div>
 
@@ -56,10 +69,10 @@ export function DualViewHeroMockup() {
           <div className="w-8" />
         </div>
 
-        {/* Dynamic Interactive View */}
+        {/* Dynamic View */}
         <div className="p-5 sm:p-6">
           {activeTab === "customer" ? (
-            /* VIEW 1: CUSTOMER-FACING EXPERIENCE */
+            /* VIEW 1: CUSTOMER VIEW */
             <motion.div
               key="customer-view"
               initial={{ opacity: 0, y: 8 }}
@@ -81,36 +94,50 @@ export function DualViewHeroMockup() {
 
               <div className="bg-[#F7F7F3] p-4 rounded-2xl border border-[#DCE3E5] space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#D79445] block">
-                  Layanan & Solusi
+                  {language === "id" ? "Layanan & Portofolio" : "Services & Portfolio"}
                 </span>
                 <strong className="text-base sm:text-lg font-bold block text-[#17324D]">
-                  Konsultasi Pengadaan & Sistem Manajemen Bisnis
+                  {language === "id"
+                    ? "Konsultasi Manajemen & Solusi Pengadaan Korporasi"
+                    : "Corporate Management & Procurement Advisory"}
                 </strong>
                 <p className="text-xs text-[#667681] leading-relaxed">
-                  Menyediakan layanan konsultasi manajemen, integrasi rantai pasok, dan pengadaan perangkat korporasi terverifikasi.
+                  {language === "id"
+                    ? "Menyediakan layanan konsultasi operasional, integrasi rantai pasok, dan pengadaan sistem bisnis terverifikasi."
+                    : "Providing operations advisory, verified supply-chain integrations, and enterprise procurement management."}
                 </p>
               </div>
 
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="p-3 bg-white rounded-xl border border-[#DCE3E5] space-y-1">
-                  <span className="text-[11px] font-bold text-[#101C24] block">Katalog Layanan</span>
-                  <span className="text-[10px] text-[#667681] block">4 Kategori Solusi</span>
+                  <span className="text-[11px] font-bold text-[#101C24] block">
+                    {language === "id" ? "Katalog Layanan" : "Service Catalog"}
+                  </span>
+                  <span className="text-[10px] text-[#667681] block">
+                    {language === "id" ? "4 Bidang Keahlian" : "4 Practice Areas"}
+                  </span>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-[#DCE3E5] space-y-1">
-                  <span className="text-[11px] font-bold text-[#101C24] block">Jalur Inquiry</span>
-                  <span className="text-[10px] text-[#177568] font-bold block">Formulir Terstruktur</span>
+                  <span className="text-[11px] font-bold text-[#101C24] block">
+                    {language === "id" ? "Jalur Konsultasi" : "Consultation Path"}
+                  </span>
+                  <span className="text-[10px] text-[#177568] font-bold block">
+                    {language === "id" ? "Formulir Terstruktur" : "Structured Form"}
+                  </span>
                 </div>
               </div>
 
               <div className="pt-1 flex items-center justify-between bg-[#17324D] text-white p-3 rounded-xl text-xs font-semibold">
-                <span className="text-[11px]">Butuh proposal layanan untuk perusahaan Anda?</span>
+                <span className="text-[11px]">
+                  {language === "id" ? "Butuh proposal kerja sama?" : "Need a formal proposal?"}
+                </span>
                 <span className="inline-flex items-center gap-1 text-[#D79445] font-bold text-xs">
-                  Minta Penawaran <ArrowRight className="w-3.5 h-3.5" />
+                  {language === "id" ? "Minta Penawaran" : "Request Proposal"} <ArrowRight className="w-3.5 h-3.5" />
                 </span>
               </div>
             </motion.div>
           ) : (
-            /* VIEW 2: BUSINESS OPERATIONS VIEW */
+            /* VIEW 2: OPERATIONS VIEW */
             <motion.div
               key="operations-view"
               initial={{ opacity: 0, y: 8 }}
@@ -123,47 +150,63 @@ export function DualViewHeroMockup() {
                   <div className="w-7 h-7 rounded-lg bg-[#177568] text-white flex items-center justify-center font-bold text-xs">
                     ERP
                   </div>
-                  <strong className="text-sm font-bold">Pipeline Approval & Tracking</strong>
+                  <strong className="text-sm font-bold">
+                    {language === "id" ? "Alur Persetujuan & Pelacakan" : "Approval & Tracking Pipeline"}
+                  </strong>
                 </div>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-                  Sistem Aktif
+                  {language === "id" ? "Sistem Aktif" : "Active System"}
                 </span>
               </div>
 
               <div className="space-y-2 text-xs">
                 <div className="p-3 rounded-xl border border-[#DCE3E5] bg-[#F7F7F3] flex items-center justify-between gap-2">
                   <div className="space-y-0.5">
-                    <strong className="text-xs text-[#101C24] block">PO-2026/08/94 - Pengadaan Raw Materials</strong>
-                    <span className="text-[10px] text-[#667681]">Diajukan: Divisi Logistik ? Nilai: Rp 48.500.000</span>
+                    <strong className="text-xs text-[#101C24] block">
+                      PO-2026/08/94 - {language === "id" ? "Pengadaan Bahan Baku" : "Raw Materials Procurement"}
+                    </strong>
+                    <span className="text-[10px] text-[#667681]">
+                      {language === "id" ? "Diajukan: Divisi Logistik • Nilai: Rp 48.500.000" : "Submitted: Logistics • Total: Rp 48,500,000"}
+                    </span>
                   </div>
                   <span className="text-[10px] px-2 py-1 rounded-md bg-emerald-100 text-emerald-800 font-bold shrink-0">
-                    Approved
+                    {language === "id" ? "Disetujui" : "Approved"}
                   </span>
                 </div>
 
                 <div className="p-3 rounded-xl border border-[#DCE3E5] bg-[#F7F7F3] flex items-center justify-between gap-2">
                   <div className="space-y-0.5">
-                    <strong className="text-xs text-[#101C24] block">TRX-PL-4402 - Reinsurance Placing Slip (USD)</strong>
-                    <span className="text-[10px] text-[#667681]">Multi-currency ledger ? Verifikasi Rate Pajak</span>
+                    <strong className="text-xs text-[#101C24] block">
+                      TRX-PL-4402 - {language === "id" ? "Slip Penempatan Reasuransi (USD)" : "Reinsurance Placing Slip (USD)"}
+                    </strong>
+                    <span className="text-[10px] text-[#667681]">
+                      {language === "id" ? "Ledger lintas mata uang • Verifikasi pajak" : "Multi-currency ledger • Tax validation"}
+                    </span>
                   </div>
                   <span className="text-[10px] px-2 py-1 rounded-md bg-amber-100 text-amber-800 font-bold shrink-0">
-                    Review Finance
+                    {language === "id" ? "Review Keuangan" : "Finance Review"}
                   </span>
                 </div>
               </div>
 
               <div className="grid grid-cols-3 gap-2 text-center text-xs pt-1">
                 <div className="p-2 bg-white rounded-xl border border-[#DCE3E5]">
-                  <span className="text-[10px] text-[#667681] block">Data Terpusat</span>
+                  <span className="text-[10px] text-[#667681] block">
+                    {language === "id" ? "Data Terpusat" : "Centralized Data"}
+                  </span>
                   <strong className="text-xs text-[#177568] font-bold">1 Database</strong>
                 </div>
                 <div className="p-2 bg-white rounded-xl border border-[#DCE3E5]">
-                  <span className="text-[10px] text-[#667681] block">Audit Log</span>
-                  <strong className="text-xs text-[#17324D] font-bold">Tertelusuri</strong>
+                  <span className="text-[10px] text-[#667681] block">Audit Trail</span>
+                  <strong className="text-xs text-[#17324D] font-bold">
+                    {language === "id" ? "Tertelusuri" : "Traceable"}
+                  </strong>
                 </div>
                 <div className="p-2 bg-white rounded-xl border border-[#DCE3E5]">
-                  <span className="text-[10px] text-[#667681] block">Hak Akses</span>
+                  <span className="text-[10px] text-[#667681] block">
+                    {language === "id" ? "Hak Akses" : "Access Control"}
+                  </span>
                   <strong className="text-xs text-[#101C24] font-bold">Role-Based</strong>
                 </div>
               </div>
@@ -177,10 +220,12 @@ export function DualViewHeroMockup() {
       <div className="flex items-center justify-between px-2 text-[11px] text-[#667681]">
         <span className="flex items-center gap-1.5 font-medium">
           <ShieldCheck className="w-3.5 h-3.5 text-[#177568]" />
-          Arsitektur Disesuaikan dengan Workflow Nyata
+          {language === "id" ? labels.footerMicrocopy.id : labels.footerMicrocopy.en}
         </span>
         <span className="font-semibold text-[#17324D]">
-          {activeTab === "customer" ? "Sisi Depan Customer" : "Sisi Operasional Internal"}
+          {activeTab === "customer"
+            ? (language === "id" ? labels.viewIndicatorCustomer.id : labels.viewIndicatorCustomer.en)
+            : (language === "id" ? labels.viewIndicatorOperations.id : labels.viewIndicatorOperations.en)}
         </span>
       </div>
 

@@ -1,18 +1,22 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import { BUSINESS_CONFIG } from "@/config/business";
-import { CONFIDENTIALITY_NOTICE } from "@/data/caseStudies";
+import { CONFIDENTIALITY_NOTICE_BILINGUAL } from "@/data/caseStudies";
+import { useLanguage } from "@/lib/languageContext";
 import { MapPin, Mail, MessageCircle, ShieldCheck } from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const { language, t } = useLanguage();
 
   return (
     <footer className="bg-[#101C24] text-[#DCE3E5] pt-16 pb-12 text-xs sm:text-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
 
-          {/* Col 1-2: Brand & Personal Developer Positioning */}
+          {/* Col 1-2: Brand & Developer Positioning */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-[#17324D] text-white flex items-center justify-center font-extrabold text-sm">
@@ -22,24 +26,32 @@ export function Footer() {
                 <span className="font-bold text-base text-white block">
                   {BUSINESS_CONFIG.brand}
                 </span>
-                <span className="text-xs text-[#667681]">
-                  Oleh {BUSINESS_CONFIG.owner}
+                <span className="text-xs text-[#8D9B9D]">
+                  {language === "id" ? `Oleh ${BUSINESS_CONFIG.owner}` : `By ${BUSINESS_CONFIG.owner}`}
                 </span>
               </div>
             </div>
 
             <p className="text-[#8D9B9D] leading-relaxed font-normal max-w-sm">
-              Membangun website profesional, aplikasi bisnis internal, dan sistem ERP yang dirancang khusus mengikuti proses kerja nyata perusahaan.
+              {language === "id"
+                ? "Membangun website profesional, aplikasi bisnis internal, dan sistem ERP yang dirancang khusus mengikuti proses kerja nyata perusahaan."
+                : "Building professional websites, internal workflows, and custom ERP systems tailored to real business operations."}
             </p>
 
             <div className="pt-2 flex flex-col gap-2 text-xs text-[#8D9B9D]">
               <div className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-[#D79445] shrink-0" />
-                <span>{BUSINESS_CONFIG.location} • Melayani {BUSINESS_CONFIG.serviceArea}</span>
+                <span>
+                  {BUSINESS_CONFIG.location} • {language === "id" ? `Melayani ${BUSINESS_CONFIG.serviceArea}` : "Serving Jabodetabek & Remote Nationwide"}
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#177568] shrink-0" />
-                <span>Komunikasi langsung dengan developer tanpa perantara</span>
+                <span>
+                  {language === "id"
+                    ? "Komunikasi langsung dengan developer tanpa perantara"
+                    : "Direct developer communication with zero middlemen"}
+                </span>
               </div>
             </div>
           </div>
@@ -47,27 +59,27 @@ export function Footer() {
           {/* Col 3: Solusi */}
           <div className="space-y-3">
             <strong className="text-xs font-bold uppercase tracking-wider text-white block">
-              Solusi Sistem
+              {language === "id" ? "Solusi Sistem" : "Solutions"}
             </strong>
             <ul className="space-y-2 text-[#8D9B9D]">
               <li>
                 <Link href="/#solusi" className="hover:text-white transition-colors">
-                  Website & Digital Presence
+                  {language === "id" ? "Website & Kehadiran Digital" : "Websites & Digital Presence"}
                 </Link>
               </li>
               <li>
                 <Link href="/solusi/inventory-pos" className="hover:text-white transition-colors">
-                  Sistem Inventory & Operasional
+                  {language === "id" ? "Sistem Inventory & Mutasi" : "Inventory & Stock Control"}
                 </Link>
               </li>
               <li>
                 <Link href="/solusi/erp-insurance-reinsurance" className="hover:text-white transition-colors">
-                  ERP Insurance & Reinsurance
+                  {language === "id" ? "ERP Asuransi & Reasuransi" : "Insurance & Reinsurance ERP"}
                 </Link>
               </li>
               <li>
                 <Link href="/#erp" className="hover:text-white transition-colors">
-                  Enterprise Capability
+                  {language === "id" ? "Kemampuan Enterprise" : "Enterprise Capability"}
                 </Link>
               </li>
             </ul>
@@ -76,39 +88,41 @@ export function Footer() {
           {/* Col 4: Navigasi */}
           <div className="space-y-3">
             <strong className="text-xs font-bold uppercase tracking-wider text-white block">
-              Navigasi
+              {language === "id" ? "Navigasi" : "Navigation"}
             </strong>
             <ul className="space-y-2 text-[#8D9B9D]">
               <li>
                 <Link href="/#pengalaman" className="hover:text-white transition-colors">
-                  Pengalaman Proyek Nyata
+                  {language === "id" ? "Pengalaman Proyek Nyata" : "Proven Experience"}
                 </Link>
               </li>
               <li>
                 <Link href="/#cara-kerja" className="hover:text-white transition-colors">
-                  Cara Kerja & Engagement
+                  {language === "id" ? "Cara Kerja & Model Kerjasama" : "Process & Engagement"}
                 </Link>
               </li>
               <li>
                 <Link href="/#faq" className="hover:text-white transition-colors">
-                  Tanya Jawab (FAQ)
+                  {language === "id" ? "Tanya Jawab (FAQ)" : "FAQ"}
                 </Link>
               </li>
               <li>
                 <Link href="/#kontak" className="hover:text-white transition-colors">
-                  Konsultasi Kebutuhan
+                  {language === "id" ? "Konsultasi Kebutuhan" : "Contact & Consultation"}
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 5: Kontak Langsung */}
+          {/* Col 5: Kontak */}
           <div className="space-y-3">
             <strong className="text-xs font-bold uppercase tracking-wider text-white block">
-              Kontak
+              {language === "id" ? "Kontak" : "Direct Contact"}
             </strong>
             <p className="text-xs text-[#8D9B9D] leading-relaxed font-normal">
-              Diskusikan kebutuhan website atau sistem bisnis Anda secara langsung.
+              {language === "id"
+                ? "Diskusikan kebutuhan website atau sistem bisnis Anda secara langsung."
+                : "Discuss your website or custom business system directly."}
             </p>
             <div className="space-y-2 pt-1">
               <a
@@ -135,11 +149,11 @@ export function Footer() {
         {/* Confidentiality Notice & Copyright */}
         <div className="pt-8 border-t border-[#1D2B34] space-y-3 text-xs text-[#667681]">
           <p className="text-[11px] leading-relaxed max-w-3xl">
-            {CONFIDENTIALITY_NOTICE}
+            {t(CONFIDENTIALITY_NOTICE_BILINGUAL)}
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-2 border-t border-[#1D2B34]/60">
-            <p>© {currentYear} {BUSINESS_CONFIG.brand}. Seluruh hak cipta dilindungi.</p>
-            <p>Membantu bisnis tampil meyakinkan dan beroperasi lebih rapi.</p>
+            <p>© {currentYear} {BUSINESS_CONFIG.brand}. {language === "id" ? "Seluruh hak cipta dilindungi." : "All rights reserved."}</p>
+            <p>{language === "id" ? "Membantu bisnis tampil meyakinkan dan beroperasi lebih rapi." : "Helping businesses build credibility and operate with greater clarity."}</p>
           </div>
         </div>
       </div>
