@@ -22,12 +22,12 @@ export const CASE_STUDIES_SECTION_HEADER = {
     en: "Proven Project Experience"
   },
   heading: {
-    id: "Pengalaman Menangani Sistem Bisnis Nyata",
-    en: "Real-World Business Systems Built for Production"
+    id: "Pengalaman Sistem Bisnis Nyata",
+    en: "Real-World Production Business Systems"
   },
   subheadline: {
-    id: "Pengalaman dari website publik hingga aplikasi internal dan ERP proses kompleks.",
-    en: "Experience ranging from public business websites to complex ERP systems."
+    id: "Pengalaman dari website bisnis hingga ERP perusahaan.",
+    en: "Production experience from business websites to enterprise ERP."
   },
   labels: {
     challenge: { id: "Tantangan", en: "Challenge" },
@@ -44,8 +44,8 @@ export const FEATURED_CASE_STUDIES_BILINGUAL: FeaturedCaseStudyBilingual[] = [
   {
     id: "cs-reinsurance-erp",
     domain: {
-      id: "Keuangan & Reasuransi",
-      en: "Financial & Reinsurance"
+      id: "Reasuransi & Keuangan",
+      en: "Reinsurance & Finance"
     },
     title: {
       id: "Sistem Operasional & Penempatan Reasuransi",
@@ -56,20 +56,20 @@ export const FEATURED_CASE_STUDIES_BILINGUAL: FeaturedCaseStudyBilingual[] = [
       en: "Insurance & Reinsurance ERP"
     },
     challenge: {
-      id: "Alur penempatan risiko treaty dan fakultatif lintas mata uang sebelumnya dicatat terpisah di spreadsheet.",
-      en: "Treaty and facultative placement workflows with multi-currency transactions were tracked manually in spreadsheets."
+      id: "Penempatan treaty dan fakultatif dicatat di spreadsheet terpisah.",
+      en: "Treaty and facultative placements were tracked in separate spreadsheets."
     },
     solutionBuilt: {
-      id: "Membangun sistem terpadu untuk alur penempatan risiko, komisi otomatis, dan penerbitan nota Statement of Account.",
-      en: "Built an integrated system covering placement pipelines, automated commission calculations, and statement of accounts."
+      id: "Sistem terpadu untuk penempatan risiko, komisi otomatis, dan nota SOA.",
+      en: "Integrated system for placement pipelines, automated commissions, and SOA notes."
     },
     myRole: {
-      id: "Merancang alur transaksi dan proses penempatan risiko agar data konsisten.",
-      en: "Designed transactional data architecture and placement pipelines."
+      id: "Merancang arsitektur transaksi, penempatan risiko, dan audit log.",
+      en: "Designed transactional architecture, placement pipelines, and audit trails."
     },
     businessValue: {
-      id: "Riwayat penempatan tersusun konsisten dalam satu sistem dan mempermudah audit operasional.",
-      en: "Consolidated placing history into one clear audit trail, speeding up closing."
+      id: "Riwayat penempatan terpusat mempercepat rekonsiliasi audit.",
+      en: "Centralized placement records streamlined audit reconciliations."
     },
     technicalDetails: {
       architecture: {
@@ -96,24 +96,24 @@ export const FEATURED_CASE_STUDIES_BILINGUAL: FeaturedCaseStudyBilingual[] = [
       en: "Policy Administration & Underwriting System"
     },
     challenge: {
-      id: "Penerbitan polis dan jadwal tagihan premi manual rawan selisih perhitungan endorsement.",
-      en: "Manual policy issuance and premium billing schedules were vulnerable to endorsement discrepancies."
+      id: "Penerbitan polis dan jadwal tagihan rawan selisih endorsement.",
+      en: "Manual policy issuance and premium billing schedules were prone to errors."
     },
     systemType: {
       id: "Sistem Manajemen Polis",
       en: "Core Policy Management System"
     },
     solutionBuilt: {
-      id: "Membangun sistem administrasi polis dengan otomasi kalkulasi premi dan pelacakan pembayaran nasabah.",
-      en: "Built a policy administration system automating risk rating calculations and premium payment tracking."
+      id: "Aplikasi administrasi polis dengan kalkulasi premi dan pelacakan pembayaran.",
+      en: "Policy administration system with premium calculations and payment tracking."
     },
     myRole: {
-      id: "Menganalisis alur polis, formula premi, dan pembatasan hak akses.",
-      en: "Analyzed policy workflows, rating formulas, and access controls."
+      id: "Menganalisis alur underwriting, formula premi, dan hak akses.",
+      en: "Analyzed underwriting workflows, rating formulas, and user permissions."
     },
     businessValue: {
-      id: "Mempercepat pemrosesan dokumen polis dan memastikan setiap perubahan data memiliki penanggung jawab jelas.",
-      en: "Shortened policy turnaround time while ensuring clear accountability across policy edits."
+      id: "Penerbitan polis lebih cepat dengan data perubahan yang jelas.",
+      en: "Accelerated policy turnaround with transparent data change tracking."
     },
     technicalDetails: {
       architecture: {
@@ -143,20 +143,20 @@ export const FEATURED_CASE_STUDIES_BILINGUAL: FeaturedCaseStudyBilingual[] = [
       en: "Internal Operations & Inventory System"
     },
     challenge: {
-      id: "Pencatatan mutasi barang di beberapa gudang menyebabkan selisih data stok saat pemeriksaan fisik.",
-      en: "Stock transfers across separate warehouse locations created discrepancies during routine physical audits."
+      id: "Mutasi antar-gudang menyebabkan selisih stok saat audit fisik.",
+      en: "Inter-warehouse transfers caused stock discrepancies during physical counts."
     },
     solutionBuilt: {
-      id: "Membangun sistem inventory digital dengan verifikasi mutasi barang antar-gudang dan audit selisih stok.",
-      en: "Built a centralized inventory system with verified transfer workflows and digital stock audit reconciliation."
+      id: "Sistem inventory terpusat dengan verifikasi mutasi dan rekonsiliasi stok.",
+      en: "Centralized inventory system with verified transfers and stock reconciliation."
     },
     myRole: {
-      id: "Mendesain alur mutasi barang dan modul rekonsiliasi audit fisik.",
-      en: "Designed inventory workflows and stock reconciliation logic."
+      id: "Mendesain alur mutasi barang dan logika rekonsiliasi selisih fisik.",
+      en: "Designed inventory transfer workflows and audit reconciliation logic."
     },
     businessValue: {
-      id: "Posisi stok dapat dipantau langsung antar gudang dan mempercepat proses verifikasi audit bulanan.",
-      en: "Provided real-time stock visibility across all warehouses, cutting audit reconciliation time."
+      id: "Posisi stok terpantau langsung dan mempercepat audit bulanan.",
+      en: "Real-time stock visibility across warehouses, speeding up monthly audits."
     },
     technicalDetails: {
       architecture: {
@@ -174,6 +174,6 @@ export const FEATURED_CASE_STUDIES_BILINGUAL: FeaturedCaseStudyBilingual[] = [
 ];
 
 export const CONFIDENTIALITY_NOTICE_BILINGUAL: LocalizedText = {
-  id: "Informasi proyek enterprise dianonimkan untuk menjaga kerahasiaan klien tanpa mengubah fakta pekerjaan yang telah diselesaikan.",
-  en: "Enterprise project details are generalized to respect client confidentiality, without altering facts of the work delivered."
+  id: "Rincian proyek dianonimkan untuk menjaga kerahasiaan klien.",
+  en: "Project details are generalized to respect client confidentiality."
 };

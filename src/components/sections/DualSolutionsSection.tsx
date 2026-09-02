@@ -12,18 +12,18 @@ export function DualSolutionsSection() {
     label: { id: "Di Depan Pelanggan", en: "Customer-Facing" },
     title: { id: "Website Profesional", en: "Professional Website" },
     heading: {
-      id: "Tampilkan Bisnis dengan Lebih Meyakinkan",
+      id: "Tampil Lebih Meyakinkan bagi Pelanggan",
       en: "Present Your Business with Confidence"
     },
     description: {
-      id: "Website yang membantu calon pelanggan memahami layanan, portofolio, dan cara memulai konsultasi dengan jelas.",
-      en: "A professional website that helps prospective customers understand your services, work examples, and next steps."
+      id: "Membantu pelanggan memahami layanan, portofolio, dan konsultasi bisnis.",
+      en: "Helps prospective customers understand your services, work examples, and next steps."
     },
     results: [
-      { id: "Informasi bisnis tersusun rapi", en: "Clear and structured business information" },
-      { id: "Layanan dan portofolio mudah dipahami", en: "Services and work examples are easy to understand" },
-      { id: "Jalur konsultasi lebih jelas", en: "A clearer path to consultation" },
-      { id: "Kunjungan website dapat dipantau", en: "Website visits can be measured" },
+      { id: "Informasi bisnis tersusun rapi", en: "Structured business information" },
+      { id: "Layanan & portofolio jelas", en: "Clear service catalog & work" },
+      { id: "Jalur konsultasi terarah", en: "Direct consultation path" },
+      { id: "Kunjungan website terpantau", en: "Measurable website traffic" },
     ],
     cta: { id: "Pelajari Website Profesional", en: "Explore Professional Websites" }
   };
@@ -32,18 +32,18 @@ export function DualSolutionsSection() {
     label: { id: "Di Balik Layar", en: "Behind the Business" },
     title: { id: "Sistem Bisnis Custom", en: "Custom Business Systems" },
     heading: {
-      id: "Rapikan Proses yang Masih Manual dan Terpisah",
+      id: "Rapikan Proses yang Masih Manual",
       en: "Bring Structure to Manual and Disconnected Processes"
     },
     description: {
-      id: "Aplikasi internal yang mengikuti alur bisnis agar data, tanggung jawab, dan status pekerjaan mudah dipantau.",
-      en: "Internal applications built around your workflow, making data, responsibilities, and progress easy to manage."
+      id: "Aplikasi internal agar alur kerja dan tanggung jawab terpantau.",
+      en: "Internal applications aligned with your workflow for clear tracking."
     },
     results: [
-      { id: "Mengurangi pencatatan berulang", en: "Reduce repeated data entry" },
-      { id: "Status pekerjaan mudah dilihat", en: "Track work status clearly" },
-      { id: "Persetujuan mudah ditelusuri", en: "Make approvals easy to follow" },
-      { id: "Laporan lebih cepat tersedia", en: "Access reports sooner" },
+      { id: "Kurangi pencatatan berulang", en: "Reduce repeated data entry" },
+      { id: "Status pekerjaan mudah dipantau", en: "Clear real-time progress tracking" },
+      { id: "Alur persetujuan tercatat rapi", en: "Traceable approval history" },
+      { id: "Laporan operasional lebih cepat", en: "Faster operational reporting" },
     ],
     cta: { id: "Pelajari Sistem Bisnis", en: "Explore Business Systems" }
   };
@@ -58,12 +58,12 @@ export function DualSolutionsSection() {
             {language === "id" ? "Dua Jalur Solusi" : "Two Solution Paths"}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#101C24] tracking-tight">
-            {language === "id" ? "Solusi untuk Sisi Depan dan Belakang Bisnis" : "Solutions for Customer Trust and Internal Clarity"}
+            {language === "id" ? "Solusi Sisi Depan dan Belakang Bisnis" : "Solutions for Front and Back Office"}
           </h2>
           <p className="text-sm sm:text-base text-[#667681] leading-relaxed font-normal">
             {language === "id"
-              ? "Mulai dari membangun kepercayaan pelanggan hingga merapikan proses kerja internal."
-              : "From building credibility with prospective customers to structuring internal workflows."}
+              ? "Meningkatkan kepercayaan pelanggan dan merapikan operasional internal."
+              : "Build customer credibility and structure internal operations."}
           </p>
         </div>
 

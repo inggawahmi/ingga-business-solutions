@@ -16,8 +16,8 @@ export const FAQ_HEADER = {
     en: "Common Questions"
   },
   subheadline: {
-    id: "Jawaban singkat seputar kebutuhan awal, penyesuaian alur, tahapan pengerjaan, dan dukungan sistem.",
-    en: "Clear answers on getting started, process customization, project phases, and ongoing support."
+    id: "Jawaban singkat seputar kebutuhan awal dan dukungan sistem.",
+    en: "Clear answers on getting started and ongoing support."
   }
 };
 
@@ -25,56 +25,56 @@ export const FAQ_DATA_BILINGUAL: FaqItemBilingual[] = [
   {
     id: "faq-1",
     question: {
-      id: "Apakah saya harus sudah memiliki kebutuhan teknis?",
-      en: "Do I need to have formal technical requirements ready?"
+      id: "Harus sudah punya kebutuhan teknis?",
+      en: "Do I need technical specs ready?"
     },
     answer: {
-      id: "Tidak. Pembahasan dapat dimulai dari masalah dan proses kerja saat ini. Kebutuhan teknis disusun bersama setelah masalah bisnis dipahami.",
-      en: "No. Discussions start from your business problem and current workflow. Technical specifications are shaped together after understanding your needs."
+      id: "Tidak. Diskusi dimulai dari masalah alur kerja. Kebutuhan teknis disusun bersama.",
+      en: "No. Discussions start from your workflow. Technical specs are shaped together."
     }
   },
   {
     id: "faq-2",
     question: {
-      id: "Apakah sistem dapat mengikuti proses bisnis yang sudah berjalan?",
-      en: "Can the system adapt to our existing business process?"
+      id: "Bisa mengikuti proses bisnis yang ada?",
+      en: "Can the system fit existing SOPs?"
     },
     answer: {
-      id: "Ya. Sistem custom menyesuaikan aplikasi dengan alur kerja bisnis Anda, bukan memaksa tim beradaptasi dengan batasan aplikasi siap pakai.",
-      en: "Yes. Custom development means building around your established SOPs, rather than forcing your team into generic software limitations."
+      id: "Bisa. Sistem custom dirancang mengikuti alur bisnis Anda, bukan sebaliknya.",
+      en: "Yes. Custom software adapts to your SOPs rather than generic limitations."
     }
   },
   {
     id: "faq-3",
     question: {
-      id: "Apakah bisa memulai dari satu proses kerja terlebih dahulu?",
-      en: "Can we start with just one specific workflow first?"
+      id: "Bisa mulai dari satu alur kerja dulu?",
+      en: "Can we start with one workflow?"
     },
     answer: {
-      id: "Tentu. Banyak klien memulai dari proses yang paling mendesak (seperti penawaran harga atau mutasi persediaan), lalu berkembang bertahap.",
-      en: "Absolutely. Many clients start with their most urgent bottleneck (such as quotations or inventory transfers) before expanding gradually."
+      id: "Bisa. Banyak klien memulai dari proses mendesak, lalu berkembang bertahap.",
+      en: "Yes. Many clients start with priority bottlenecks before expanding gradually."
     }
   },
   {
     id: "faq-4",
     question: {
-      id: "Apakah tersedia dukungan setelah sistem digunakan?",
-      en: "Is support provided after the system goes live?"
+      id: "Apakah ada dukungan setelah peluncuran?",
+      en: "Is ongoing support provided?"
     },
     answer: {
-      id: "Ya. Setiap proyek mencakup pendampingan implementasi, pelatihan tim, garansi perbaikan, serta opsi pemeliharaan berkala.",
-      en: "Yes. Every project includes rollout guidance, team training, warranty fixes, and ongoing maintenance options."
+      id: "Ada. Setiap proyek mencakup pendampingan peluncuran, pelatihan tim, dan garansi.",
+      en: "Yes. Every project includes rollout guidance, user training, and warranty fixes."
     }
   },
   {
     id: "faq-5",
     question: {
-      id: "Bagaimana menentukan biaya dan waktu pengerjaan?",
-      en: "How are project investment and timeline determined?"
+      id: "Bagaimana menentukan biaya dan jadwal?",
+      en: "How are timeline and cost determined?"
     },
     answer: {
-      id: "Biaya dan jadwal dihitung transparan berdasarkan ruang lingkup pekerjaan yang disepakati bersama setelah sesi diskusi awal.",
-      en: "Timeline and investment are calculated transparently from the agreed scope of work after our initial discovery session."
+      id: "Biaya dan jadwal dihitung transparan sesuai ruang lingkup yang disepakati.",
+      en: "Investment and timeline are calculated transparently from agreed project scope."
     }
   }
 ];

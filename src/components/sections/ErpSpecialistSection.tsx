@@ -14,16 +14,16 @@ export function ErpSpecialistSection() {
       en: "Enterprise Capability",
     },
     heading: {
-      id: "ERP yang Mengikuti Kompleksitas Proses Perusahaan",
-      en: "ERP Built Around Complex Business Operations",
+      id: "ERP untuk Proses Bisnis yang Kompleks",
+      en: "ERP for Complex Business Operations",
     },
     subheadline: {
-      id: "Untuk perusahaan yang membutuhkan satu sistem untuk mengelola proses, data, tanggung jawab, dan pelaporan yang saling berkaitan.",
-      en: "For companies that need connected processes, controlled data, clear responsibilities, and consistent reporting.",
+      id: "Satu sistem terpadu untuk mengelola proses, data, dan pelaporan.",
+      en: "One connected system to manage workflows, transactional data, and reporting.",
     },
     mainExplanation: {
-      id: "ERP dibangun mengikuti proses kerja perusahaan dan dapat diterapkan secara bertahap mulai dari modul prioritas.",
-      en: "ERP should follow how the company works. Implementation can be phased, starting with priority modules."
+      id: "ERP dirancang mengikuti proses perusahaan dan diterapkan bertahap dari modul prioritas.",
+      en: "ERP is designed around your workflows and deployed in phases starting with priority modules.",
     },
     benefits: [
       { id: "Data penting tersusun dalam satu alur", en: "Keep important data within one connected process" },
@@ -36,16 +36,16 @@ export function ErpSpecialistSection() {
       en: "Insurance & Reinsurance Experience",
     },
     specializationHeading: {
-      id: "Memahami Proses Asuransi, Reasuransi, dan Transaksi Lintas Mata Uang",
-      en: "Experience with Insurance, Reinsurance, and Multi-Currency Operations",
+      id: "Keahlian Khusus: Asuransi, Reasuransi & Multi-Currency",
+      en: "Domain Focus: Insurance, Reinsurance & Multi-Currency",
     },
     specializationDesc: {
-      id: "Berpengalaman menangani sistem dengan banyak tahapan dokumen, perhitungan transaksi, dan audit pelaporan.",
-      en: "Experience building multi-stage transactional systems, calculations, and compliance reporting.",
+      id: "Berpengalaman menangani alur penempatan, kalkulasi komisi, dan audit pelaporan.",
+      en: "Experienced in placement pipelines, commission engines, and audit compliance reporting.",
     },
     supportingCopy: {
-      id: "Pemahaman domain memastikan proses analisis kebutuhan berjalan terarah.",
-      en: "Domain knowledge ensures a focused discovery process.",
+      id: "Pemahaman domain memastikan pemetaan kebutuhan berjalan tepat dan efisien.",
+      en: "Deep domain knowledge ensures precise and efficient requirement discovery.",
     },
     primaryCta: {
       id: "Bahas Kebutuhan ERP",

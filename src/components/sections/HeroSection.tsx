@@ -21,8 +21,8 @@ export function HeroSection() {
       enAccent: "Run Your Business with Greater Clarity.",
     },
     subheadline: {
-      id: "Membangun website profesional dan sistem bisnis yang mengikuti kebutuhan nyata perusahaan—mulai dari kehadiran digital hingga ERP untuk proses operasional yang kompleks.",
-      en: "Professional websites and business systems tailored to real operational needs—from digital presence to ERP for complex business processes.",
+      id: "Membangun website profesional dan sistem bisnis sesuai proses nyata perusahaan—dari kehadiran digital hingga ERP kompleks.",
+      en: "Professional websites and business systems tailored to real operations—from digital presence to complex ERP workflows.",
     },
     primaryCta: {
       id: "Lihat Solusi",

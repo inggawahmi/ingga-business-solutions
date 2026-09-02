@@ -12,18 +12,40 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [solusiDropdown, setSolusiDropdown] = useState(false);
+
   const triggerRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const firstItemRef = useRef<HTMLAnchorElement>(null);
   const { language, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdown on outside click
+  useEffect(() => {
+    if (!solusiDropdown) return;
+
+    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setSolusiDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, [solusiDropdown]);
+
+  // Mobile menu body scroll lock & Escape listener
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -40,7 +62,21 @@ export function Navbar() {
     }
   }, [mobileOpen]);
 
-  const handleDropdownKeyDown = (e: React.KeyboardEvent) => {
+  // Keyboard navigation for desktop dropdown
+  const handleTriggerKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setSolusiDropdown(true);
+      setTimeout(() => {
+        firstItemRef.current?.focus();
+      }, 50);
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      setSolusiDropdown(false);
+    }
+  };
+
+  const handleDropdownKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === "Escape") {
       e.preventDefault();
       setSolusiDropdown(false);
@@ -48,7 +84,7 @@ export function Navbar() {
     }
   };
 
-  const handleBlur = (e: React.FocusEvent) => {
+  const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
     if (dropdownRef.current && !dropdownRef.current.contains(e.relatedTarget as Node)) {
       setSolusiDropdown(false);
     }
@@ -123,12 +159,10 @@ export function Navbar() {
             className="hidden md:flex items-center gap-1 text-xs font-semibold text-[#101C24]"
             aria-label={t(navLabels.mobileMenu)}
           >
-            {/* Dropdown Solusi with Full Keyboard & Click Support */}
+            {/* Dropdown Solusi (Pure Click Toggle, Full Keyboard, No Hover) */}
             <div
               ref={dropdownRef}
               className="relative"
-              onMouseEnter={() => setSolusiDropdown(true)}
-              onMouseLeave={() => setSolusiDropdown(false)}
               onBlur={handleBlur}
               onKeyDown={handleDropdownKeyDown}
             >
@@ -140,12 +174,13 @@ export function Navbar() {
                 aria-haspopup="true"
                 aria-controls="desktop-solutions-menu"
                 onClick={() => setSolusiDropdown((prev) => !prev)}
+                onKeyDown={handleTriggerKeyDown}
                 className="flex items-center gap-1 px-3.5 py-2 rounded-xl hover:bg-white hover:text-[#177568] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#177568]"
               >
                 <span>{t(navLabels.solutions)}</span>
                 <ChevronDown
                   className={
-                    "w-3.5 h-3.5 text-[#667681] transition-transform " +
+                    "w-3.5 h-3.5 text-[#667681] transition-transform duration-200 " +
                     (solusiDropdown ? "rotate-180" : "")
                   }
                 />
@@ -156,13 +191,14 @@ export function Navbar() {
                   id="desktop-solutions-menu"
                   role="menu"
                   aria-labelledby="desktop-solutions-trigger"
-                  className="absolute top-full left-0 mt-1 w-80 bg-white rounded-2xl border border-[#DCE3E5] shadow-lg p-2 flex flex-col gap-1 z-50"
+                  className="absolute top-full left-0 mt-1 w-80 bg-white rounded-2xl border border-[#DCE3E5] shadow-lg p-2 flex flex-col gap-1 z-50 animate-in fade-in zoom-in-95 duration-150"
                 >
-                  {solutionLinks.map((sol) => {
+                  {solutionLinks.map((sol, idx) => {
                     const Icon = sol.icon;
                     return (
                       <Link
                         key={sol.href}
+                        ref={idx === 0 ? firstItemRef : undefined}
                         href={sol.href}
                         role="menuitem"
                         onClick={() => setSolusiDropdown(false)}

@@ -26,23 +26,23 @@ export function FinalCtaSection() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   const labels = {
-    bannerEyebrow: { id: "Mulai Diskusi Kebutuhan", en: "Start the Conversation" },
+    bannerEyebrow: { id: "Mulai Diskusi", en: "Start Discovery" },
     bannerHeading: {
-      id: "Punya Proses Bisnis yang Masih Terasa Ribet?",
-      en: "Have a Business Workflow That Still Feels Complicated?"
+      id: "Punya Proses Bisnis yang Ingin Dirapikan?",
+      en: "Have a Business Workflow to Improve?"
     },
     bannerSub: {
-      id: "Ceritakan kondisi saat ini. Kebutuhan akan dipelajari terlebih dahulu untuk menentukan apakah solusi terbaiknya berupa website, perbaikan proses kerja, sistem custom, atau ERP.",
-      en: "Share your current situation. We will review your operational context to determine whether a professional website, workflow improvement, custom system, or ERP is the most practical path forward."
+      id: "Ceritakan kondisi bisnis Anda untuk menemukan solusi paling tepat.",
+      en: "Share your situation to find the most practical solution."
     },
     bannerMicro: {
-      id: "Tidak harus sudah memiliki kebutuhan teknis. Cukup jelaskan masalah dan proses yang sedang berjalan.",
-      en: "No technical specifications are required. Simply describe what is happening in your business."
+      id: "Tidak perlu istilah teknis. Jelaskan proses saat ini.",
+      en: "No technical jargon needed. Simply describe your current process."
     },
     formTitle: { id: "Ceritakan Kebutuhan Anda", en: "Tell Me What You Need" },
     formDesc: {
-      id: "Berikan gambaran singkat mengenai bisnis dan proses yang ingin diperbaiki. Tidak perlu menggunakan istilah teknis.",
-      en: "Share a brief overview of your business and the process you want to improve. No technical requirements are needed."
+      id: "Jelaskan ringkas proses yang ingin diperbaiki.",
+      en: "Share a brief overview of what you want to improve."
     },
     name: { id: "Nama", en: "Name" },
     company: { id: "Perusahaan atau Bisnis", en: "Company or Business" },
@@ -53,8 +53,8 @@ export function FinalCtaSection() {
     submit: { id: "Kirim Kebutuhan", en: "Send Requirement" },
     optional: { id: "(Opsional)", en: "(Optional)" },
     privacy: {
-      id: "Informasi yang dikirim hanya digunakan untuk menindaklanjuti kebutuhan Anda.",
-      en: "The information you submit will only be used to follow up on your request."
+      id: "Informasi hanya digunakan untuk menindaklanjuti kebutuhan Anda.",
+      en: "Information is used solely to follow up on your request."
     },
     validation: {
       name: { id: "Nama wajib diisi", en: "Name is required" },
@@ -77,7 +77,6 @@ export function FinalCtaSection() {
     setErrors(err);
 
     if (Object.keys(err).length > 0) {
-      // Accessibility: Focus first invalid input field
       const firstKey = Object.keys(err)[0];
       const targetId =
         firstKey === "name"
@@ -155,7 +154,7 @@ export function FinalCtaSection() {
                     setFormData({ ...formData, name: e.target.value });
                     if (errors.name) setErrors({ ...errors, name: "" });
                   }}
-                  placeholder={language === "id" ? "Contoh: Budi Santoso" : "e.g. Alex Graham"}
+                  placeholder={language === "id" ? "Budi Santoso" : "Alex Graham"}
                   className={
                     "w-full px-4 py-2.5 rounded-xl border text-[#101C24] bg-[#F7F7F3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#177568] transition-all " +
                     (errors.name ? "border-rose-400 bg-rose-50/50" : "border-[#DCE3E5]")
@@ -178,7 +177,7 @@ export function FinalCtaSection() {
                   type="text"
                   value={formData.companyName || ""}
                   onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
-                  placeholder={language === "id" ? "Contoh: PT Surya Logistik" : "e.g. Apex Logistics"}
+                  placeholder={language === "id" ? "PT Surya Logistik" : "Apex Logistics"}
                   className="w-full px-4 py-2.5 rounded-xl border border-[#DCE3E5] text-[#101C24] bg-[#F7F7F3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#177568] transition-all"
                 />
               </div>
@@ -257,8 +256,8 @@ export function FinalCtaSection() {
                 }}
                 placeholder={
                   language === "id"
-                    ? "Contoh: laporan masih dibuat manual dari beberapa file dan owner sulit memantau progress tanpa bertanya kepada tim."
-                    : "e.g. reports are compiled manually across spreadsheets and management lacks real-time progress visibility."
+                    ? "Rekap laporan masih manual dari spreadsheet dan sulit dipantau."
+                    : "Reporting is compiled manually across spreadsheets and hard to track."
                 }
                 className={
                   "w-full px-4 py-2.5 rounded-xl border text-[#101C24] bg-[#F7F7F3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#177568] transition-all resize-y " +
@@ -284,8 +283,8 @@ export function FinalCtaSection() {
                 onChange={(e) => setFormData({ ...formData, currentWorkflow: e.target.value })}
                 placeholder={
                   language === "id"
-                    ? "Contoh: Menggunakan grup chat dan spreadsheet Google Sheets terpisah"
-                    : "e.g. Using chat groups and disparate spreadsheets"
+                    ? "Grup chat dan spreadsheet terpisah"
+                    : "Chat groups and disparate spreadsheets"
                 }
                 className="w-full px-4 py-2.5 rounded-xl border border-[#DCE3E5] text-[#101C24] bg-[#F7F7F3] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#177568] transition-all"
               />

@@ -6,27 +6,22 @@ export interface ProblemSignalBilingual {
   description: LocalizedText;
 }
 
-export const PROBLEM_SECTION_HEADER: {
-  eyebrow: LocalizedText;
-  heading: LocalizedText;
-  subheadline: LocalizedText;
-  closing: LocalizedText;
-} = {
+export const PROBLEM_SECTION_HEADER = {
   eyebrow: {
-    id: "Apakah Ini Terjadi di Bisnis Anda?",
-    en: "Is This Happening in Your Business?"
+    id: "Kendala Operasional",
+    en: "Operational Friction"
   },
   heading: {
-    id: "Bisnis Sudah Berjalan, tetapi Prosesnya Belum Benar-Benar Terhubung",
-    en: "The Business Is Running, but the Process Is Still Disconnected"
+    id: "Bisnis Berjalan, tetapi Proses Belum Terhubung",
+    en: "The Business Is Running, but Processes Are Disconnected"
   },
   subheadline: {
-    id: "Semakin bisnis berkembang, semakin sulit mengandalkan pencatatan yang tersebar.",
-    en: "As business grows, relying on fragmented notes creates operational friction."
+    id: "Mengandalkan chat dan catatan terpisah memperlambat operasional bisnis.",
+    en: "Relying on chat and separate notes slows down operations."
   },
   closing: {
-    id: "Tidak semua masalah membutuhkan sistem besar. Memperbaiki satu proses yang tepat sering kali menjadi langkah awal yang paling masuk akal.",
-    en: "Not every problem requires a large system. Improving one critical process is often the most practical place to start."
+    id: "Memperbaiki satu proses kunci adalah langkah awal yang paling berdampak.",
+    en: "Improving one key process is often the most practical start."
   }
 };
 
@@ -34,45 +29,45 @@ export const PROBLEM_SIGNALS_BILINGUAL: ProblemSignalBilingual[] = [
   {
     num: "01",
     title: {
-      id: "Informasi bisnis belum meyakinkan",
-      en: "The business is difficult to understand"
+      id: "Informasi belum meyakinkan",
+      en: "Scattered presence"
     },
     description: {
-      id: "Layanan dan portofolio tersebar sehingga calon pelanggan kesulitan memahami bisnis Anda.",
-      en: "Services and work examples are scattered, making it hard for prospects to understand your value."
+      id: "Layanan tersebar sehingga calon pelanggan sulit memahami nilai bisnis.",
+      en: "Scattered services make it difficult for prospects to understand your business."
     }
   },
   {
     num: "02",
     title: {
-      id: "Data dicatat berulang kali",
-      en: "The same data is entered repeatedly"
+      id: "Pencatatan berulang",
+      en: "Duplicate data entry"
     },
     description: {
-      id: "Informasi yang sama dipindahkan secara manual antar chat, spreadsheet, dan dokumen.",
-      en: "The same information moves manually between chat messages, spreadsheets, and documents."
+      id: "Data yang sama dicatat berulang di chat dan spreadsheet.",
+      en: "The same data is entered repeatedly across chat and spreadsheets."
     }
   },
   {
     num: "03",
     title: {
-      id: "Persetujuan dan tindak lanjut terlambat",
-      en: "Approvals and follow-ups are delayed"
+      id: "Persetujuan terlambat",
+      en: "Delayed approvals"
     },
     description: {
-      id: "Keputusan penting bergantung pada percakapan yang mudah tenggelam dan sulit ditelusuri.",
-      en: "Important decisions depend on unorganized conversations that are difficult to track."
+      id: "Keputusan penting tertunda karena persetujuan tenggelam di chat.",
+      en: "Decisions stall because approvals get lost in informal chat."
     }
   },
   {
     num: "04",
     title: {
-      id: "Laporan masih dibuat manual",
-      en: "Reports still take manual effort"
+      id: "Laporan manual",
+      en: "Manual reports"
     },
     description: {
-      id: "Tim menghabiskan waktu mengumpulkan data sebelum pimpinan dapat melihat kondisi bisnis.",
-      en: "The team spends time compiling data before management can see business performance."
+      id: "Waktu tim terbuang merekap data sebelum pimpinan melihat kondisi bisnis.",
+      en: "Time is spent compiling data before leadership sees business performance."
     }
   }
 ];

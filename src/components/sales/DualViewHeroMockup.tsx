@@ -132,13 +132,13 @@ export function DualViewHeroMockup() {
                 </span>
                 <strong className="text-base sm:text-lg font-bold block text-[#17324D]">
                   {language === "id"
-                    ? "Konsultasi Manajemen & Solusi Pengadaan Korporasi"
+                    ? "Konsultasi Manajemen & Solusi Pengadaan"
                     : "Corporate Management & Procurement Advisory"}
                 </strong>
                 <p className="text-xs text-[#667681] leading-relaxed">
                   {language === "id"
-                    ? "Menyediakan layanan konsultasi operasional, integrasi rantai pasok, dan pengadaan sistem bisnis terverifikasi."
-                    : "Providing operations advisory, verified supply-chain integrations, and enterprise procurement management."}
+                    ? "Konsultasi operasional, rantai pasok, dan pengadaan sistem bisnis."
+                    : "Operations advisory, verified supply-chain integration, and business systems procurement."}
                 </p>
               </div>
 
@@ -219,7 +219,7 @@ export function DualViewHeroMockup() {
                       TRX-PL-4402 - {language === "id" ? "Slip Penempatan Reasuransi (USD)" : "Reinsurance Placing Slip (USD)"}
                     </strong>
                     <span className="text-[10px] text-[#667681]">
-                      {language === "id" ? "Ledger lintas mata uang • Verifikasi pajak" : "Multi-currency ledger • Tax validation"}
+                      {language === "id" ? "Pencatatan multi-currency • Verifikasi pajak" : "Multi-currency ledger • Tax validation"}
                     </span>
                   </div>
                   <span className="text-[10px] px-2 py-1 rounded-md bg-amber-100 text-amber-800 font-bold shrink-0">
